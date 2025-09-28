@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difficulty Select - INDI INHA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="difficulty-container">
+        <header class="game-header">
+            <h1 class="game-title">INDI INHA</h1>
+            <div class="subtitle">난이도 선택</div>
+        </header>
+
+        <main class="difficulty-content">
+            <div class="difficulty-grid">
+                <div class="difficulty-card easy" data-difficulty="easy">
+                    <div class="difficulty-icon">😊</div>
+                    <div class="difficulty-info">
+                        <h2 class="difficulty-title">쉬움</h2>
+                        <p class="difficulty-description">처음 하는 플레이어를 위한<br>편안한 난이도</p>
+                    </div>
+                    <!-- 버튼 오버레이 -->
+                    <div class="button-overlay">
+                        <button class="save-button new" data-action="new-easy">새로하기</button>
+                        <button class="save-button continue" id="continue-easy"
+                            data-action="continue-easy">이어하기</button>
+                    </div>
+                </div>
+
+                <div class="difficulty-card normal" data-difficulty="normal">
+                    <div class="difficulty-icon">🙂</div>
+                    <div class="difficulty-info">
+                        <h2 class="difficulty-title">보통</h2>
+                        <p class="difficulty-description">균형잡힌 게임플레이를 위한<br>표준 난이도</p>
+                    </div>
+                    <!-- 버튼 오버레이 -->
+                    <div class="button-overlay">
+                        <button class="save-button new" data-action="new-normal">새로하기</button>
+                        <button class="save-button continue" id="continue-normal"
+                            data-action="continue-normal">이어하기</button>
+                    </div>
+                </div>
+
+                <div class="difficulty-card hard" data-difficulty="hard">
+                    <div class="difficulty-icon">😤</div>
+                    <div class="difficulty-info">
+                        <h2 class="difficulty-title">어려움</h2>
+                        <p class="difficulty-description">도전을 원하는 플레이어를 위한<br>높은 난이도</p>
+                    </div>
+                    <!-- 버튼 오버레이 -->
+                    <div class="button-overlay">
+                        <button class="save-button new" data-action="new-hard">새로하기</button>
+                        <button class="save-button continue" id="continue-hard"
+                            data-action="continue-hard">이어하기</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="difficulty-footer">
+            <button class="back-button" onclick="goBack()">← 돌아가기</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

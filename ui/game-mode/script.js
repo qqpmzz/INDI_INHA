@@ -163,8 +163,8 @@ class GameMode {
 
     startStoryMode() {
         console.log('Starting Story Mode...');
-        // story-mode 화면으로 이동
-        window.location.href = '../story-mode/index.html';
+        // 난이도 선택 화면으로 이동
+        window.location.href = '../difficulty-select/index.html';
     }
 
     openChapterSelect() {
