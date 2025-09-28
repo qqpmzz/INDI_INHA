@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mode-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px #4a9eff, 0 0 40px #4a9eff;
+    letter-spacing: 0.3em;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+}
+
+.mode-menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.mode-list {
+    list-style: none;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mode-item {
+    opacity: 0;
+    animation: slideIn 0.6s ease forwards;
+}
+
+.mode-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.mode-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.mode-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.mode-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.mode-button {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: transparent;
+    border: 2px solid #4a9eff;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.mode-button:hover,
+.mode-item.active .mode-button {
+    background: rgba(74, 158, 255, 0.2);
+    box-shadow: 0 0 25px rgba(74, 158, 255, 0.6);
+    transform: translateX(10px);
+    border-color: #66b3ff;
+}
+
+.mode-button:hover::before,
+.mode-item.active .mode-button::before {
+    content: '▶ ';
+    position: absolute;
+    left: 1rem;
+    font-size: 1.2rem;
+    animation: pulse 1.5s infinite;
+}
+
+.mode-button:active {
+    transform: translateX(10px) scale(0.98);
+}
+
+.mode-icon {
+    font-size: 2.5rem;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mode-info {
+    flex: 1;
+}
+
+.mode-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.mode-info p {
+    font-size: 0.9rem;
+    color: #cccccc;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+.mode-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.navigation-hint {
+    font-size: 0.9rem;
+    color: #888;
+    opacity: 0.7;
+}
+
+/* 애니메이션 */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px #4a9eff, 0 0 40px #4a9eff;
+    }
+
+    to {
+        text-shadow: 0 0 30px #4a9eff, 0 0 50px #4a9eff, 0 0 70px #4a9eff;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 2rem;
+        letter-spacing: 0.2em;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .mode-button {
+        padding: 1.2rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .mode-icon {
+        font-size: 2rem;
+        min-width: 50px;
+    }
+
+    .mode-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .mode-info p {
+        font-size: 0.8rem;
+    }
+
+    .mode-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 1.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .mode-button {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .mode-icon {
+        font-size: 1.8rem;
+        min-width: auto;
+    }
+
+    .mode-info h3 {
+        font-size: 1rem;
+    }
+
+    .mode-info p {
+        font-size: 0.75rem;
+    }
+}
+
+/* 포커스 효과 */
+.mode-button:focus {
+    outline: none;
+    background: rgba(74, 158, 255, 0.3);
+    box-shadow: 0 0 30px rgba(74, 158, 255, 0.8);
+}
+
+/* 선택된 모드 아이템 효과 */
+.mode-item.active .mode-button {
+    background: rgba(74, 158, 255, 0.15);
+    border-color: #66b3ff;
+}

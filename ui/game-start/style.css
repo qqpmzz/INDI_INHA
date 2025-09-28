@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.title-screen {
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.game-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px #4a9eff, 0 0 40px #4a9eff, 0 0 60px #4a9eff;
+    letter-spacing: 0.3em;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #cccccc;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+}
+
+.start-prompt {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.press-key-text {
+    font-size: 1.2rem;
+    color: #ffffff;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.blinking-cursor {
+    font-size: 1.5rem;
+    color: #4a9eff;
+    animation: blink 1s infinite;
+}
+
+/* 애니메이션 */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px #4a9eff, 0 0 40px #4a9eff, 0 0 60px #4a9eff;
+    }
+
+    to {
+        text-shadow: 0 0 30px #4a9eff, 0 0 50px #4a9eff, 0 0 80px #4a9eff;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 2.5rem;
+        letter-spacing: 0.2em;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .press-key-text {
+        font-size: 1rem;
+    }
+
+    .title-screen {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 2rem;
+        letter-spacing: 0.1em;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .press-key-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* 키 입력 시 효과 */
+.key-pressed {
+    transform: scale(1.05);
+    transition: transform 0.1s ease;
+}
+
+body.transitioning {
+    animation: fadeOut 0.5s ease-in forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
