@@ -29,13 +29,13 @@ class SettingsManager {
     init() {
         // 설정 로드
         this.loadSettings();
-        
+
         // 이벤트 리스너 등록
         this.setupEventListeners();
-        
+
         // UI 초기화
         this.updateUI();
-        
+
         console.log('Settings Manager initialized');
     }
 
@@ -156,7 +156,7 @@ class SettingsManager {
     applyGraphicSettings() {
         const quality = this.settings.graphic.quality;
         console.log(`Graphics quality changed to: ${quality}`);
-        
+
         // Unity에서 그래픽 품질 적용 시뮬레이션
         switch (quality) {
             case 'low':
@@ -198,10 +198,10 @@ class SettingsManager {
     saveSettings() {
         // 로컬 스토리지에 설정 저장
         localStorage.setItem('lostSpellsSettings', JSON.stringify(this.settings));
-        
+
         // 저장 효과 표시
         this.showSaveEffect();
-        
+
         console.log('Settings saved:', this.settings);
     }
 
@@ -232,7 +232,7 @@ class SettingsManager {
 
             this.updateUI();
             this.saveSettings();
-            
+
             console.log('Settings reset to default');
         }
     }
@@ -268,10 +268,10 @@ class SettingsManager {
     showSaveEffect() {
         const saveBtn = document.querySelector('.settings-btn.primary');
         const originalText = saveBtn.textContent;
-        
+
         saveBtn.textContent = '저장 완료!';
         saveBtn.style.background = 'linear-gradient(135deg, #00ff00 0%, #00cc00 100%)';
-        
+
         setTimeout(() => {
             saveBtn.textContent = originalText;
             saveBtn.style.background = 'linear-gradient(135deg, #4B0082 0%, #8A2BE2 100%)';

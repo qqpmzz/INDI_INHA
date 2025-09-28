@@ -15,7 +15,7 @@ class ShopManager {
         this.loadCurrency();
         this.setupEventListeners();
         this.updateCurrencyDisplay();
-        
+
         console.log('Shop Manager initialized');
     }
 
@@ -33,7 +33,7 @@ class ShopManager {
                 const price = parseFloat(e.target.dataset.price);
                 const item = e.target.dataset.item;
                 const quantity = parseInt(e.target.dataset.quantity);
-                
+
                 this.initiatePurchase(item, quantity, price);
             });
         });
@@ -105,14 +105,14 @@ class ShopManager {
 
         // 아이템별 정보 설정
         const itemInfo = this.getItemInfo(item, quantity);
-        
+
         icon.textContent = itemInfo.icon;
         name.textContent = itemInfo.name;
         desc.textContent = itemInfo.description;
         priceElement.textContent = `$${price.toFixed(2)}`;
 
         modal.style.display = 'block';
-        
+
         // 모달 애니메이션
         setTimeout(() => {
             modal.querySelector('.modal-content').style.transform = 'scale(1)';
@@ -122,7 +122,7 @@ class ShopManager {
     showInsufficientFundsModal() {
         const modal = document.getElementById('insufficient-funds-modal');
         modal.style.display = 'block';
-        
+
         setTimeout(() => {
             modal.querySelector('.modal-content').style.transform = 'scale(1)';
         }, 10);
@@ -258,14 +258,14 @@ class ShopManager {
         // 잔액 충전 (시뮬레이션)
         const amounts = [10, 20, 50, 100];
         const randomAmount = amounts[Math.floor(Math.random() * amounts.length)];
-        
+
         this.playerCurrency.dollars += randomAmount;
         this.updateCurrencyDisplay();
         this.saveCurrency();
-        
+
         // 충전 완료 알림
         alert(`$${randomAmount}가 충전되었습니다!`);
-        
+
         this.closeAllModals();
     }
 
@@ -369,7 +369,7 @@ function resetShopData() {
 // 페이지 로드 시 초기화
 document.addEventListener('DOMContentLoaded', () => {
     window.shopManager = new ShopManager();
-    
+
     // 개발자 도구용 전역 접근
     window.debugShop = {
         addMoney: addDebugMoney,
