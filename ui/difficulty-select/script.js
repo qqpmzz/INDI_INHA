@@ -78,11 +78,11 @@ class DifficultySelect {
     continueGame(difficulty) {
         console.log(`Continuing ${difficulty} game...`);
 
-        // 저장된 데이터로 게임 이어하기 - 스토리 진행 화면으로 직접 이동
+        // 저장된 데이터로 게임 이어하기 - 바로 게임 플레이 화면으로 이동
         if (this.saveData[difficulty]) {
             const saveData = this.saveData[difficulty];
-            // 스토리 모드 화면으로 이동하며 저장 데이터 정보 전달
-            window.location.href = `../story-mode/index.html?difficulty=${difficulty}&chapter=${saveData.chapter}&progress=${saveData.progress}&mode=continue`;
+            // 게임 플레이 화면으로 바로 이동하며 저장 데이터 정보 전달
+            window.location.href = `../game-play/index.html?difficulty=${difficulty}&chapter=${saveData.chapter}&progress=${saveData.progress}&mode=continue`;
         } else {
             alert('저장된 데이터가 없습니다.');
         }

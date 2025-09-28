@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Spells - Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="settings-container">
+        <header class="settings-header">
+            <button class="back-btn" onclick="backToMenu()">←</button>
+            <h1 class="settings-title">게임 설정</h1>
+            <div class="settings-subtitle">게임 환경을 원하는 대로 설정하세요</div>
+        </header>
+
+        <!-- 탭 메뉴 -->
+        <div class="tab-container">
+            <button class="tab-button active" data-tab="audio">
+                🔊 Audio
+            </button>
+            <button class="tab-button" data-tab="graphic">
+                🖥️ Graphic
+            </button>
+            <button class="tab-button" data-tab="gameplay">
+                🎮 Game Play
+            </button>
+        </div>
+
+        <!-- 설정 내용 영역 -->
+        <div class="settings-content">
+            <!-- Audio 탭 -->
+            <div class="tab-content active" id="audio-tab">
+                <div class="settings-section">
+                    <h2 class="section-title">오디오 설정</h2>
+                    <p class="section-description">사운드 및 볼륨을 조정할 수 있습니다.</p>
+
+                    <!-- 모든 소리 끄기 -->
+                    <div class="setting-item">
+                        <label class="setting-label">모든 소리 끄기</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="mute-all" class="toggle-input">
+                            <label for="mute-all" class="toggle-label"></label>
+                        </div>
+                    </div>
+
+                    <!-- 마스터 볼륨 -->
+                    <div class="setting-item">
+                        <label class="setting-label">마스터 볼륨: <span id="master-volume-value">80%</span></label>
+                        <div class="slider-container">
+                            <input type="range" id="master-volume" class="volume-slider" min="0" max="100" value="80">
+                        </div>
+                    </div>
+
+                    <!-- 배경 음악 -->
+                    <div class="setting-item">
+                        <label class="setting-label">배경 음악: <span id="bgm-volume-value">70%</span></label>
+                        <div class="slider-container">
+                            <input type="range" id="bgm-volume" class="volume-slider" min="0" max="100" value="70">
+                        </div>
+                    </div>
+
+                    <!-- 효과음 -->
+                    <div class="setting-item">
+                        <label class="setting-label">효과음: <span id="sfx-volume-value">90%</span></label>
+                        <div class="slider-container">
+                            <input type="range" id="sfx-volume" class="volume-slider" min="0" max="100" value="90">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graphic 탭 -->
+            <div class="tab-content" id="graphic-tab">
+                <div class="settings-section">
+                    <h2 class="section-title">그래픽 설정</h2>
+                    <p class="section-description">화질과 성능을 조정할 수 있습니다.</p>
+
+                    <!-- 화질 설정 -->
+                    <div class="setting-item">
+                        <label class="setting-label">화질</label>
+                        <select id="quality-select" class="setting-select">
+                            <option value="low">낮음</option>
+                            <option value="medium" selected>보통</option>
+                            <option value="high">높음</option>
+                            <option value="ultra">최고</option>
+                        </select>
+                    </div>
+
+                    <!-- 해상도 설정 -->
+                    <div class="setting-item">
+                        <label class="setting-label">해상도</label>
+                        <select id="resolution-select" class="setting-select">
+                            <option value="1280x720">1280 x 720</option>
+                            <option value="1920x1080" selected>1920 x 1080</option>
+                            <option value="2560x1440">2560 x 1440</option>
+                        </select>
+                    </div>
+
+                    <!-- 전체화면 -->
+                    <div class="setting-item">
+                        <label class="setting-label">전체화면</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="fullscreen" class="toggle-input" checked>
+                            <label for="fullscreen" class="toggle-label"></label>
+                        </div>
+                    </div>
+
+                    <!-- V-Sync -->
+                    <div class="setting-item">
+                        <label class="setting-label">V-Sync</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="vsync" class="toggle-input">
+                            <label for="vsync" class="toggle-label"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Play 탭 -->
+            <div class="tab-content" id="gameplay-tab">
+                <div class="settings-section">
+                    <h2 class="section-title">게임 플레이 설정</h2>
+                    <p class="section-description">게임 조작과 인터페이스를 설정합니다.</p>
+
+                    <!-- 난이도 -->
+                    <div class="setting-item">
+                        <label class="setting-label">기본 난이도</label>
+                        <select id="default-difficulty" class="setting-select">
+                            <option value="easy">쉬움</option>
+                            <option value="normal" selected>보통</option>
+                            <option value="hard">어려움</option>
+                            <option value="expert">전문가</option>
+                        </select>
+                    </div>
+
+                    <!-- 자동 저장 -->
+                    <div class="setting-item">
+                        <label class="setting-label">자동 저장</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="auto-save" class="toggle-input" checked>
+                            <label for="auto-save" class="toggle-label"></label>
+                        </div>
+                    </div>
+
+                    <!-- 튜토리얼 표시 -->
+                    <div class="setting-item">
+                        <label class="setting-label">튜토리얼 표시</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="show-tutorial" class="toggle-input" checked>
+                            <label for="show-tutorial" class="toggle-label"></label>
+                        </div>
+                    </div>
+
+                    <!-- UI 크기 -->
+                    <div class="setting-item">
+                        <label class="setting-label">UI 크기: <span id="ui-scale-value">100%</span></label>
+                        <div class="slider-container">
+                            <input type="range" id="ui-scale" class="volume-slider" min="80" max="120" value="100">
+                        </div>
+                    </div>
+
+                    <!-- 언어 설정 -->
+                    <div class="setting-item">
+                        <label class="setting-label">언어</label>
+                        <select id="language-select" class="setting-select">
+                            <option value="ko" selected>한국어</option>
+                            <option value="en">English</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 하단 버튼들 -->
+        <div class="settings-footer">
+            <button class="settings-btn secondary" onclick="resetSettings()">기본값으로 복원</button>
+            <button class="settings-btn primary" onclick="saveSettings()">설정 저장</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

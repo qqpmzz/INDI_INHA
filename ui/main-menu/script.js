@@ -143,6 +143,10 @@ class MainMenu {
                 this.startNewGame();
                 break;
 
+            case 'shop':
+                this.openShop();
+                break;
+
             case 'settings':
                 this.openSettings();
                 break;
@@ -163,9 +167,16 @@ class MainMenu {
         window.location.href = '../game-mode/index.html';
     }
 
+    openShop() {
+        console.log('Opening shop...');
+        // 상점 화면으로 이동
+        window.location.href = '../shop/index.html';
+    }
+
     openSettings() {
         console.log('Opening settings...');
-        alert('설정 화면입니다.\n(아직 구현되지 않았습니다.)');
+        // 설정 화면으로 이동
+        window.location.href = '../settings/index.html';
     }
 
     exitGame() {
