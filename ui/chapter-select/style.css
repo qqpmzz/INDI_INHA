@@ -1,0 +1,553 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chapter-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px #4a9eff, 0 0 40px #4a9eff;
+    letter-spacing: 0.3em;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.chapter-info {
+    font-size: 1rem;
+    color: #4a9eff;
+    font-weight: bold;
+}
+
+.chapter-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    gap: 2rem;
+}
+
+.nav-button {
+    background: rgba(74, 158, 255, 0.2);
+    border: 2px solid #4a9eff;
+    color: #4a9eff;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nav-button:hover {
+    background: rgba(74, 158, 255, 0.4);
+    box-shadow: 0 0 20px rgba(74, 158, 255, 0.6);
+    transform: scale(1.1);
+}
+
+.nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+    background: rgba(74, 158, 255, 0.1);
+}
+
+.nav-button:disabled:hover {
+    background: rgba(74, 158, 255, 0.1);
+    box-shadow: none;
+    transform: none;
+}
+
+.chapter-viewport {
+    width: 836px;
+    /* 카드+간격(796px) + 여백(40px) = 836px */
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chapter-grid {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 부드러운 슬라이딩 */
+    width: fit-content;
+    /* 모든 카드를 가로로 배치 */
+    padding-left: 20px;
+    /* 여백 계산: viewport(836px) - 카드3장+간격(796px) = 40px 여백, 절반인 20px로 중앙 정렬 */
+}
+
+.chapter-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #4a9eff;
+    border-radius: 15px;
+    padding: 1.2rem;
+    width: 240px;
+    /* 260px에서 240px로 축소하여 3장이 확실히 들어가도록 */
+    height: 360px;
+    /* 380px에서 360px로 축소 */
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.chapter-card:hover {
+    background: rgba(74, 158, 255, 0.2);
+    box-shadow: 0 0 25px rgba(74, 158, 255, 0.6);
+    transform: translateY(-10px);
+    border-color: #66b3ff;
+}
+
+/* 상태별 카드 스타일 - 테두리색만 적용, 배경색은 통일 */
+.chapter-card.completed {
+    border-color: #4CAF50;
+}
+
+.chapter-card.completed:hover {
+    box-shadow: 0 0 25px rgba(76, 175, 80, 0.4);
+}
+
+.chapter-card.in-progress {
+    border-color: #FF9800;
+}
+
+.chapter-card.in-progress:hover {
+    box-shadow: 0 0 25px rgba(255, 152, 0, 0.4);
+}
+
+.chapter-card.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+    border-color: #757575;
+}
+
+.chapter-card.locked:hover {
+    box-shadow: none;
+    transform: none;
+    border-color: #757575;
+}
+
+.chapter-card.locked .chapter-icon {
+    filter: grayscale(100%) opacity(0.5);
+}
+
+/* 구 스타일 제거됨 - 새로운 레이아웃 스타일 사용 */
+
+/* 카드 헤더 */
+.chapter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    width: 100%;
+}
+
+.chapter-number {
+    font-size: 1.1rem;
+    color: #4a9eff;
+    font-weight: bold;
+}
+
+/* 상태 배지 스타일 */
+.chapter-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status-icon {
+    font-size: 1rem;
+}
+
+.status-text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* 카드 메인 영역 */
+.chapter-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+}
+
+.chapter-icon {
+    font-size: 4rem;
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 0 10px rgba(74, 158, 255, 0.5));
+}
+
+.chapter-info {
+    text-align: center;
+    width: 100%;
+}
+
+.chapter-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.chapter-sin {
+    font-size: 0.95rem;
+    color: #ff6b6b;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+}
+
+.chapter-description {
+    font-size: 0.85rem;
+    color: #cccccc;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 2.5rem;
+    /* 진행률 오버레이와 충분한 간격 확보 */
+    opacity: 0.9;
+    padding: 0 0.5rem;
+}
+
+/* 진행률 바 스타일 - 더 눈에 띄게 수정 */
+.chapter-progress {
+    width: 100%;
+    margin-top: 0.8rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid rgba(74, 158, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.progress-label {
+    font-size: 0.9rem;
+    color: #4a9eff;
+    text-align: center;
+    margin-bottom: 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 12px rgba(74, 158, 255, 0.6);
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.progress-text {
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* 진행률 오버레이 - 카드 하단에 띄우기 */
+.progress-overlay {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 0.6rem;
+    border: 1px solid rgba(74, 158, 255, 0.3);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.progress-label-overlay {
+    font-size: 0.7rem;
+    color: #4a9eff;
+    text-align: center;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.progress-bar-overlay {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+}
+
+.progress-fill-overlay {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 8px rgba(74, 158, 255, 0.6);
+}
+
+.progress-text-overlay {
+    font-size: 0.8rem;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.chapter-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.back-button {
+    background: rgba(74, 158, 255, 0.2);
+    border: 2px solid #4a9eff;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background: rgba(74, 158, 255, 0.4);
+    box-shadow: 0 0 20px rgba(74, 158, 255, 0.6);
+}
+
+.navigation-hint {
+    font-size: 0.9rem;
+    color: #888;
+    opacity: 0.7;
+}
+
+/* 애니메이션 */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px #4a9eff, 0 0 40px #4a9eff;
+    }
+
+    to {
+        text-shadow: 0 0 30px #4a9eff, 0 0 50px #4a9eff, 0 0 70px #4a9eff;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .chapter-viewport {
+        width: 744px;
+        /* 3개 카드 + 간격 (240px * 3 + 2rem * 2 = 720 + 24 = 744px) */
+    }
+
+    .chapter-card {
+        width: 240px;
+        height: 340px;
+        padding: 1.2rem;
+    }
+
+    .chapter-icon {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .chapter-content {
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .chapter-viewport {
+        width: 572px;
+        /* 3개 카드 + 간격 (180px * 3 + 2rem * 2 = 540 + 32 = 572px) - 약간 작게 */
+        order: 2;
+    }
+
+    .nav-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .prev-button {
+        order: 1;
+    }
+
+    .next-button {
+        order: 3;
+    }
+
+    .chapter-card {
+        width: 180px;
+        height: 250px;
+        padding: 1rem;
+    }
+
+    .chapter-icon {
+        font-size: 2.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .game-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chapter-container {
+        padding: 1rem;
+    }
+
+    .chapter-viewport {
+        width: 456px;
+        /* 3개 카드 + 간격 (150px * 3 + 0.8rem * 2 = 450 + 25.6 = 475.6px) - 약간 작게 */
+    }
+
+    .chapter-grid {
+        gap: 0.8rem;
+    }
+
+    .game-title {
+        font-size: 1.5rem;
+    }
+
+    .chapter-card {
+        width: 150px;
+        height: 200px;
+        padding: 0.8rem;
+    }
+
+    .chapter-icon {
+        font-size: 2rem;
+    }
+
+    .chapter-title {
+        font-size: 0.9rem;
+    }
+
+    .chapter-description {
+        font-size: 0.7rem;
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "gameData": {
+        "hasSave": false,
+        "saveFile": null,
+        "lastSaved": null,
+        "saveSlots": {
+            "slot1": {
+                "exists": false,
+                "playerName": "",
+                "progress": 0,
+                "chapter": 1,
+                "level": 1,
+                "playtime": "00:00:00",
+                "lastSaved": null,
+                "screenshot": null
+            },
+            "slot2": {
+                "exists": false,
+                "playerName": "",
+                "progress": 0,
+                "chapter": 1,
+                "level": 1,
+                "playtime": "00:00:00",
+                "lastSaved": null,
+                "screenshot": null
+            },
+            "slot3": {
+                "exists": false,
+                "playerName": "",
+                "progress": 0,
+                "chapter": 1,
+                "level": 1,
+                "playtime": "00:00:00",
+                "lastSaved": null,
+                "screenshot": null
+            }
+        },
+        "settings": {
+            "volume": {
+                "master": 0.7,
+                "bgm": 0.8,
+                "sfx": 0.9
+            },
+            "display": {
+                "fullscreen": false,
+                "resolution": "1920x1080"
+            },
+            "controls": {
+                "keyBindings": {
+                    "up": "ArrowUp",
+                    "down": "ArrowDown",
+                    "left": "ArrowLeft",
+                    "right": "ArrowRight",
+                    "confirm": "Enter",
+                    "cancel": "Escape"
+                }
+            }
+        }
+    },
+    "meta": {
+        "version": "1.0.0",
+        "lastUpdated": null,
+        "gameVersion": "1.0.0"
+    }
+}

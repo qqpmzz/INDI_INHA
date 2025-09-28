@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Select - INDI INHA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="chapter-container">
+        <header class="game-header">
+            <h1 class="game-title">INDI INHA</h1>
+            <div class="subtitle">챕터 선택</div>
+            <div class="chapter-info">
+                <span class="current-page">1</span> / <span class="total-pages">3</span>
+            </div>
+        </header>
+
+        <div class="chapter-content">
+            <button class="nav-button prev-button" id="prevBtn">
+                <span class="nav-arrow">◀</span>
+            </button>
+
+            <div class="chapter-viewport">
+                <div class="chapter-grid" id="chapterGrid">
+                    <!-- 챕터들이 동적으로 생성됩니다 -->
+                </div>
+            </div>
+
+            <button class="nav-button next-button" id="nextBtn">
+                <span class="nav-arrow">▶</span>
+            </button>
+        </div>
+
+        <footer class="chapter-footer">
+            <button class="back-button" data-action="back-to-gamemode">
+                <span class="back-icon">🎮</span>
+                <span>게임 모드로 돌아가기</span>
+            </button>
+            <p class="navigation-hint">ESC: 게임모드로 돌아가기</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

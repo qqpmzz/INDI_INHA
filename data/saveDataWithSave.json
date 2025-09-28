@@ -1,0 +1,65 @@
+{
+    "gameData": {
+        "hasSave": true,
+        "saveFile": "slot1",
+        "lastSaved": "2025-09-28T10:30:00Z",
+        "saveSlots": {
+            "slot1": {
+                "exists": true,
+                "playerName": "플레이어",
+                "progress": 45,
+                "chapter": 3,
+                "level": 7,
+                "playtime": "02:15:30",
+                "lastSaved": "2025-09-28T10:30:00Z",
+                "screenshot": "chapter3_village.jpg"
+            },
+            "slot2": {
+                "exists": false,
+                "playerName": "",
+                "progress": 0,
+                "chapter": 1,
+                "level": 1,
+                "playtime": "00:00:00",
+                "lastSaved": null,
+                "screenshot": null
+            },
+            "slot3": {
+                "exists": false,
+                "playerName": "",
+                "progress": 0,
+                "chapter": 1,
+                "level": 1,
+                "playtime": "00:00:00",
+                "lastSaved": null,
+                "screenshot": null
+            }
+        },
+        "settings": {
+            "volume": {
+                "master": 0.7,
+                "bgm": 0.8,
+                "sfx": 0.9
+            },
+            "display": {
+                "fullscreen": false,
+                "resolution": "1920x1080"
+            },
+            "controls": {
+                "keyBindings": {
+                    "up": "ArrowUp",
+                    "down": "ArrowDown",
+                    "left": "ArrowLeft",
+                    "right": "ArrowRight",
+                    "confirm": "Enter",
+                    "cancel": "Escape"
+                }
+            }
+        }
+    },
+    "meta": {
+        "version": "1.0.0",
+        "lastUpdated": "2025-09-28T10:30:00Z",
+        "gameVersion": "1.0.0"
+    }
+}

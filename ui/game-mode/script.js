@@ -163,12 +163,14 @@ class GameMode {
 
     startStoryMode() {
         console.log('Starting Story Mode...');
-        alert('스토리 모드를 시작합니다!\n(게임 화면이 아직 구현되지 않았습니다.)');
+        // story-mode 화면으로 이동
+        window.location.href = '../story-mode/index.html';
     }
 
     openChapterSelect() {
         console.log('Opening Chapter Select...');
-        alert('챕터 선택 화면입니다.\n(아직 구현되지 않았습니다.)');
+        // chapter-select 화면으로 이동
+        window.location.href = '../chapter-select/index.html';
     }
 
     startEndlessMode() {
