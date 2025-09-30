@@ -1,0 +1,368 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-menu {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    padding: 60px 40px;
+    gap: 80px;
+}
+
+.currency-display {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    z-index: 20;
+}
+
+.currency-item {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(79, 195, 247, 0.15), rgba(41, 182, 246, 0.15));
+    border: 1px solid rgba(79, 195, 247, 0.4);
+    border-radius: 25px;
+    padding: 8px 16px;
+    gap: 8px;
+    min-width: 80px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.currency-item:hover {
+    background: linear-gradient(135deg, rgba(79, 195, 247, 0.25), rgba(41, 182, 246, 0.25));
+    border-color: rgba(79, 195, 247, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+}
+
+.currency-icon {
+    font-size: 1.2rem;
+    min-width: 20px;
+    text-align: center;
+}
+
+.currency-divider {
+    font-size: 0.8rem;
+    color: rgba(79, 195, 247, 0.6);
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.currency-amount {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.title-section {
+    text-align: center;
+    z-index: 10;
+}
+
+.game-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 20px #4fc3f7, 0 0 40px #29b6f6, 0 0 60px #03a9f4;
+    margin-bottom: 15px;
+    letter-spacing: 6px;
+    animation: title-glow 4s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #b0bec5;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.menu-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 280px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(79, 195, 247, 0.1), rgba(41, 182, 246, 0.1));
+    border: 2px solid rgba(79, 195, 247, 0.3);
+    border-radius: 12px;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0 25px;
+    gap: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.menu-btn:hover::before {
+    left: 100%;
+}
+
+.menu-btn:hover {
+    background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(41, 182, 246, 0.2));
+    border-color: rgba(79, 195, 247, 0.6);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(79, 195, 247, 0.3);
+}
+
+.menu-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+    min-width: 30px;
+    text-align: center;
+}
+
+.btn-text {
+    flex: 1;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+/* 각 버튼별 특별한 호버 효과 */
+.gameplay-btn:hover {
+    border-color: rgba(76, 175, 80, 0.6);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+}
+
+.shop-btn:hover {
+    border-color: rgba(255, 193, 7, 0.6);
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+}
+
+.options-btn:hover {
+    border-color: rgba(158, 158, 158, 0.6);
+    box-shadow: 0 8px 25px rgba(158, 158, 158, 0.3);
+}
+
+.exit-btn:hover {
+    border-color: rgba(244, 67, 54, 0.6);
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
+}
+
+.background-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.magic-circle {
+    position: absolute;
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.circle1 {
+    width: 200px;
+    height: 200px;
+    top: 15%;
+    right: 10%;
+    animation-direction: reverse;
+}
+
+.circle2 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    left: 8%;
+}
+
+.magic-particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(79, 195, 247, 0.8), transparent);
+    border-radius: 50%;
+    animation: float-magic 8s ease-in-out infinite;
+}
+
+.particle1 {
+    width: 3px;
+    height: 3px;
+    top: 25%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.particle2 {
+    width: 5px;
+    height: 5px;
+    top: 70%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+.particle3 {
+    width: 4px;
+    height: 4px;
+    bottom: 30%;
+    left: 25%;
+    animation-delay: 4s;
+}
+
+.particle4 {
+    width: 3px;
+    height: 3px;
+    top: 40%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.particle5 {
+    width: 6px;
+    height: 6px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 3s;
+}
+
+/* 애니메이션 */
+@keyframes title-glow {
+    0% {
+        text-shadow: 0 0 20px #4fc3f7, 0 0 40px #29b6f6, 0 0 60px #03a9f4;
+        transform: scale(1);
+    }
+
+    100% {
+        text-shadow: 0 0 30px #4fc3f7, 0 0 60px #29b6f6, 0 0 90px #03a9f4;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float-magic {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+    }
+
+    33% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 0.9;
+    }
+
+    66% {
+        transform: translateY(-10px) scale(0.8);
+        opacity: 0.7;
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .main-menu {
+        padding: 40px 20px;
+    }
+
+    .currency-display {
+        top: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+
+    .currency-item {
+        min-width: 70px;
+        padding: 6px 12px;
+        gap: 6px;
+    }
+
+    .currency-icon {
+        font-size: 1rem;
+    }
+
+    .currency-divider {
+        font-size: 0.7rem;
+    }
+
+    .currency-amount {
+        font-size: 0.85rem;
+    }
+
+    .game-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .menu-btn {
+        width: 250px;
+        height: 55px;
+        font-size: 1rem;
+        padding: 0 20px;
+        gap: 12px;
+    }
+
+    .btn-icon {
+        font-size: 1.3rem;
+    }
+}

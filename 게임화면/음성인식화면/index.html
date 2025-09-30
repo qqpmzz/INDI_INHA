@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Spells - 음성인식</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        // iframe 내부에서 실행되는지 확인하고, 아니면 기본게임화면으로 리다이렉트
+        if (window.parent === window) {
+            window.location.href = '../기본게임화면/index.html';
+        }
+    </script>
+    <div class="voice-container">
+        <!-- 뒤로가기 버튼 -->
+        <button class="back-btn" onclick="goBack()">
+            <span class="back-icon">←</span>
+            <span class="back-text">게임으로 돌아가기</span>
+        </button>
+
+        <!-- 1단계: 음성 인식 -->
+        <div class="voice-stage active" id="listeningStage">
+            <div class="voice-icon">🎤</div>
+            <div class="voice-title">음성 인식 중...</div>
+            <div class="voice-subtitle">스킬 이름을 말해주세요</div>
+            <div class="voice-visual">
+                <div class="sound-wave"></div>
+                <div class="sound-wave"></div>
+                <div class="sound-wave"></div>
+                <div class="sound-wave"></div>
+            </div>
+            <div class="voice-instructions">
+                <p>2초 후 자동으로 인식을 시작합니다</p>
+            </div>
+        </div>
+
+        <!-- 2단계: 결과 및 정확도 -->
+        <div class="voice-stage" id="resultStage">
+            <div class="voice-icon">✨</div>
+            <div class="voice-title">인식 결과</div>
+            <div class="skill-result">
+                <div class="skill-name-result" id="skillNameResult">
+                    <!-- 동적으로 생성될 글자들 -->
+                </div>
+                <div class="accuracy-result">
+                    정확도: <span id="accuracyPercent">0%</span>
+                </div>
+            </div>
+            <div class="voice-instructions">
+                <p>4초 후 자동으로 게임으로 돌아갑니다</p>
+            </div>
+        </div>
+
+        <!-- 진행 바 -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">음성 인식 준비 중...</div>
+        </div>
+    </div>
+
+    <script>
+        let currentStage = 1;
+        let isProcessing = false;
+
+        // 사용 가능한 스킬 목록 (영어 이름)
+        const availableSkills = [
+            { name: 'Fireball', korean: '파이어볼', pronunciation: '파이어볼' },
+            { name: 'Ice Bolt', korean: '아이스 볼트', pronunciation: '아이스 볼트' },
+            { name: 'Lightning', korean: '라이트닝', pronunciation: '라이트닝' },
+            { name: 'Heal', korean: '힐', pronunciation: '힐' },
+            { name: 'Shield', korean: '쉴드', pronunciation: '쉴드' },
+            { name: 'Meteor', korean: '메테오', pronunciation: '메테오' },
+            { name: 'Blizzard', korean: '블리자드', pronunciation: '블리자드' },
+            { name: 'Earthquake', korean: '어스퀘이크', pronunciation: '어스퀘이크' },
+            { name: 'Wind Blade', korean: '윈드 블레이드', pronunciation: '윈드 블레이드' },
+            { name: 'Holy Light', korean: '홀리 라이트', pronunciation: '홀리 라이트' },
+            { name: 'Dark Magic', korean: '다크 매직', pronunciation: '다크 매직' },
+            { name: 'Teleport', korean: '텔레포트', pronunciation: '텔레포트' },
+            { name: 'Time Stop', korean: '타임 스톱', pronunciation: '타임 스톱' },
+            { name: 'Phoenix', korean: '피닉스', pronunciation: '피닉스' },
+            { name: 'Dragon Breath', korean: '드래곤 브레스', pronunciation: '드래곤 브레스' }
+        ];
+
+        // 키보드 이벤트 처리
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' || event.key.toLowerCase() === 'q') {
+                goBack();
+            }
+        });
+
+        // 페이지 로드 시 음성인식 시작
+        window.addEventListener('load', function () {
+            startVoiceRecognition();
+        });
+
+        function startVoiceRecognition() {
+            if (isProcessing) return;
+            isProcessing = true;
+
+            currentStage = 1;
+            showStage(1);
+
+            // 2초 후 인식 시작
+            setTimeout(() => {
+                if (currentStage === 1) {
+                    simulateVoiceRecognition();
+                }
+            }, 2000);
+        }
+
+        function simulateVoiceRecognition() {
+            // 랜덤한 스킬 선택
+            const randomSkill = availableSkills[Math.floor(Math.random() * availableSkills.length)];
+            const accuracy = Math.floor(Math.random() * 40) + 60; // 60-100% 정확도
+
+            // 결과 단계로 전환
+            currentStage = 2;
+            showStage(2);
+
+            // 스킬 이름 애니메이션
+            displaySkillNameWithAnimation(randomSkill.name);
+
+            // 정확도 표시
+            document.getElementById('accuracyPercent').textContent = accuracy + '%';
+
+            // 4초 후 자동으로 게임으로 돌아가기
+            autoClose();
+        }
+
+        function displaySkillNameWithAnimation(skillName) {
+            const container = document.getElementById('skillNameResult');
+            container.innerHTML = '';
+
+            const letters = skillName.split('');
+            letters.forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.className = 'skill-letter';
+                span.textContent = letter === ' ' ? '\u00A0' : letter; // 공백 처리
+                span.style.animationDelay = (index * 0.1) + 's';
+                container.appendChild(span);
+            });
+        }
+
+        function showStage(stageNumber) {
+            // 모든 스테이지 숨기기
+            document.querySelectorAll('.voice-stage').forEach(stage => {
+                stage.classList.remove('active');
+            });
+
+            // 해당 스테이지 보이기
+            if (stageNumber === 1) {
+                document.getElementById('listeningStage').classList.add('active');
+                updateProgress(0, '음성 인식 중...');
+
+                // 진행 바 애니메이션 (2초)
+                animateProgress(100, 2000);
+            } else if (stageNumber === 2) {
+                document.getElementById('resultStage').classList.add('active');
+                updateProgress(0, '결과 표시 중...');
+
+                // 진행 바 애니메이션 (4초)
+                animateProgress(100, 4000);
+            }
+        }
+
+        function updateProgress(percentage, text) {
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = text;
+        }
+
+        function animateProgress(targetPercentage, duration) {
+            const startTime = Date.now();
+            const startPercentage = 0;
+
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const currentPercentage = startPercentage + (targetPercentage - startPercentage) * progress;
+
+                updateProgress(currentPercentage, document.getElementById('progressText').textContent);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            animate();
+        }
+
+        function goBack() {
+            // 팝업에서 호출된 경우 부모 윈도우에게 닫기 메시지 전송
+            if (window.parent !== window) {
+                window.parent.postMessage('closePopup', '*');
+            } else {
+                window.location.href = '../기본게임화면/index.html';
+            }
+        }
+
+        // 자동으로 4초 후 닫기
+        function autoClose() {
+            setTimeout(() => {
+                goBack();
+            }, 4000);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Spells - 상점</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 메인메뉴 배경 -->
+    <div class="main-menu-background">
+        <div class="currency-display">
+            <div class="currency-item">
+                <span class="currency-icon">💎</span>
+                <span class="currency-divider">|</span>
+                <span class="currency-amount">3</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-icon">🔮</span>
+                <span class="currency-divider">|</span>
+                <span class="currency-amount">11</span>
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h1 class="game-title">LOST SPELLS</h1>
+            <div class="subtitle">MAGIC ADVENTURE GAME</div>
+        </div>
+
+        <div class="menu-section">
+            <div class="menu-buttons">
+                <button class="menu-btn gameplay-btn">
+                    <span class="btn-icon">⚔️</span>
+                    <span class="btn-text">START GAME</span>
+                </button>
+
+                <button class="menu-btn options-btn">
+                    <span class="btn-icon">⚙️</span>
+                    <span class="btn-text">SETTINGS</span>
+                </button>
+
+                <button class="menu-btn shop-btn active">
+                    <span class="btn-icon">🏪</span>
+                    <span class="btn-text">SHOP</span>
+                </button>
+
+                <button class="menu-btn exit-btn">
+                    <span class="btn-icon">🚪</span>
+                    <span class="btn-text">QUIT</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="background-decoration">
+            <div class="magic-circle circle1"></div>
+            <div class="magic-circle circle2"></div>
+            <div class="magic-particle particle1"></div>
+            <div class="magic-particle particle2"></div>
+            <div class="magic-particle particle3"></div>
+            <div class="magic-particle particle4"></div>
+            <div class="magic-particle particle5"></div>
+        </div>
+    </div>
+
+    <!-- 상점 팝업 -->
+    <div class="shop-popup-overlay">
+        <div class="shop-popup">
+            <!-- 상점 헤더 -->
+            <div class="shop-header">
+                <div class="shop-title">
+                    <span class="shop-icon">🏪</span>
+                    <h2>MYSTIC SHOP</h2>
+                </div>
+                <button class="close-btn">✕</button>
+            </div>
+
+            <!-- 상점 네비게이션 -->
+            <div class="shop-nav">
+                <button class="nav-tab active" data-category="runestone">
+                    <span class="tab-icon">💎</span>
+                    <span class="tab-text">룬석</span>
+                </button>
+                <button class="nav-tab" data-category="revive">
+                    <span class="tab-icon">🔮</span>
+                    <span class="tab-text">부활석</span>
+                </button>
+            </div>
+
+            <!-- 상점 컨텐츠 -->
+            <div class="shop-content">
+                <!-- 룬석 카테고리 -->
+                <div class="category-content active" id="runestone-content">
+                    <div class="category-header">
+                        <span class="category-icon">💎</span>
+                        <h3>룬석 구매</h3>
+                        <p class="category-desc">마법의 힘을 담은 룬석으로 강력한 스펠을 해제하세요</p>
+                    </div>
+
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <div class="item-icon">💎</div>
+                            <div class="item-name">룬석 1개</div>
+                            <div class="item-desc">기본 룬석 패키지</div>
+                            <div class="item-price">$5.00</div>
+                            <button class="purchase-btn">구매하기</button>
+                        </div>
+
+                        <div class="item-card popular">
+                            <div class="popular-badge">인기</div>
+                            <div class="item-icon">💎💎💎</div>
+                            <div class="item-name">룬석 3개</div>
+                            <div class="item-desc">가장 인기있는 패키지</div>
+                            <div class="item-price">
+                                <span class="original-price">$15.00</span>
+                                <span class="sale-price">$10.00</span>
+                            </div>
+                            <button class="purchase-btn">구매하기</button>
+                        </div>
+
+                        <div class="item-card best-value">
+                            <div class="value-badge">최고 가치</div>
+                            <div class="item-icon">💎✨</div>
+                            <div class="item-name">룬석 10개</div>
+                            <div class="item-desc">최고의 가치! 보너스 포함</div>
+                            <div class="item-price">
+                                <span class="original-price">$50.00</span>
+                                <span class="sale-price">$20.00</span>
+                            </div>
+                            <button class="purchase-btn">구매하기</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 부활석 카테고리 -->
+                <div class="category-content" id="revive-content">
+                    <div class="category-header">
+                        <span class="category-icon">🔮</span>
+                        <h3>부활석 구매</h3>
+                        <p class="category-desc">게임에서 패배했을 때 즉시 부활할 수 있는 마법석</p>
+                    </div>
+
+                    <div class="items-grid">
+                        <div class="item-card">
+                            <div class="item-icon">🔮</div>
+                            <div class="item-name">부활석 1개</div>
+                            <div class="item-desc">기본 부활석 패키지</div>
+                            <div class="item-price">$5.00</div>
+                            <button class="purchase-btn">구매하기</button>
+                        </div>
+
+                        <div class="item-card popular">
+                            <div class="popular-badge">인기</div>
+                            <div class="item-icon">🔮🔮🔮</div>
+                            <div class="item-name">부활석 3개</div>
+                            <div class="item-desc">가장 인기있는 패키지</div>
+                            <div class="item-price">
+                                <span class="original-price">$15.00</span>
+                                <span class="sale-price">$10.00</span>
+                            </div>
+                            <button class="purchase-btn">구매하기</button>
+                        </div>
+
+                        <div class="item-card best-value">
+                            <div class="value-badge">최고 가치</div>
+                            <div class="item-icon">🔮✨</div>
+                            <div class="item-name">부활석 10개</div>
+                            <div class="item-desc">최고의 가치! 보너스 포함</div>
+                            <div class="item-price">
+                                <span class="original-price">$50.00</span>
+                                <span class="sale-price">$20.00</span>
+                            </div>
+                            <button class="purchase-btn">구매하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 탭 전환 기능
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 모든 탭에서 active 클래스 제거
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.category-content').forEach(c => c.classList.remove('active'));
+
+                // 클릭된 탭에 active 클래스 추가
+                tab.classList.add('active');
+                const category = tab.getAttribute('data-category');
+                document.getElementById(`${category}-content`).classList.add('active');
+            });
+        });
+
+        // 팝업 닫기
+        document.querySelector('.close-btn').addEventListener('click', () => {
+            document.querySelector('.shop-popup-overlay').style.display = 'none';
+        });
+
+        // 오버레이 클릭으로 닫기
+        document.querySelector('.shop-popup-overlay').addEventListener('click', (e) => {
+            if (e.target === document.querySelector('.shop-popup-overlay')) {
+                document.querySelector('.shop-popup-overlay').style.display = 'none';
+            }
+        });
+
+        // 구매 버튼 클릭 이벤트
+        document.querySelectorAll('.purchase-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const itemName = e.target.parentElement.querySelector('.item-name').textContent;
+                alert(`${itemName} 구매가 완료되었습니다!`);
+            });
+        });
+    </script>
+</body>
+
+</html>

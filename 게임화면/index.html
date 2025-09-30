@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Spells - 네비게이션</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-container {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+            border: 2px solid rgba(79, 195, 247, 0.4);
+            border-radius: 20px;
+            padding: 50px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 50px rgba(79, 195, 247, 0.3);
+            max-width: 600px;
+            width: 90vw;
+        }
+
+        .nav-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #4fc3f7;
+            text-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+        }
+
+        .nav-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(106, 27, 154, 0.2));
+            border: 2px solid rgba(138, 43, 226, 0.4);
+            border-radius: 15px;
+            color: #e1bee7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(106, 27, 154, 0.3));
+            border-color: rgba(138, 43, 226, 0.6);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            font-size: 2rem;
+            min-width: 40px;
+        }
+
+        .btn-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .btn-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .btn-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-key {
+            background: rgba(79, 195, 247, 0.2);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #4fc3f7;
+            border: 1px solid rgba(79, 195, 247, 0.4);
+        }
+
+        .nav-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-info h3 {
+            color: #4fc3f7;
+            margin-bottom: 10px;
+        }
+
+        .nav-info p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 자동으로 기본게임화면으로 리다이렉트
+        window.location.href = '기본게임화면/index.html';
+    </script>
+    <div class="nav-container">
+        <div class="nav-title">🎮 Lost Spells</div>
+        <div class="nav-subtitle">UI 네비게이션 - 원하는 화면을 선택하세요</div>
+
+        <div class="nav-buttons">
+            <a href="기본게임화면/index.html" class="nav-btn">
+                <div class="btn-icon">🎮</div>
+                <div class="btn-content">
+                    <div class="btn-title">기본 게임화면</div>
+                    <div class="btn-desc">메인 게임 UI, HP/MP 바, 스킬 슬롯</div>
+                </div>
+                <div class="btn-key">시작점</div>
+            </a>
+
+            <a href="음성인식화면/index.html" class="nav-btn">
+                <div class="btn-icon">🎤</div>
+                <div class="btn-content">
+                    <div class="btn-title">음성인식 화면</div>
+                    <div class="btn-desc">2단계 자동 음성인식 시스템</div>
+                </div>
+                <div class="btn-key">Space</div>
+            </a>
+
+            <a href="스킬북화면/index.html" class="nav-btn">
+                <div class="btn-icon">✨</div>
+                <div class="btn-content">
+                    <div class="btn-title">스킬북 화면</div>
+                    <div class="btn-desc">스킬 카드 브라우징, 카테고리 필터링</div>
+                </div>
+                <div class="btn-key">Shift</div>
+            </a>
+
+            <a href="룬업그레이드화면/index.html" class="nav-btn">
+                <div class="btn-icon">🔮</div>
+                <div class="btn-content">
+                    <div class="btn-title">룬 업그레이드 화면</div>
+                    <div class="btn-desc">룬석으로 스킬 강화 및 해금</div>
+                </div>
+                <div class="btn-key">R</div>
+            </a>
+        </div>
+
+        <div class="nav-info">
+            <h3>📝 사용법</h3>
+            <p>
+                각 화면은 독립적으로 작동합니다. 모든 화면에서 "← 게임으로 돌아가기" 버튼으로
+                기본 게임화면으로 돌아갈 수 있습니다. 기본 게임화면에서 키보드 단축키로
+                다른 화면에 접근할 수 있습니다.
+            </p>
+        </div>
+    </div>
+
+</html>
+<div class="skill-card unlocked" data-category="attack">
+    <div class="skill-card-icon">🔥</div>
+    <div class="skill-card-name">Fireball</div>
+    <div class="skill-card-level">Lv.3</div>
+    <div class="skill-card-pronunciation">🔊 "파이어볼"</div>
+    <div class="skill-card-desc">화염 구체를 발사하여 적을 공격합니다</div>
+    <div class="skill-card-stats">
+        <div class="stat">공격력: <span class="stat-damage">120</span></div>
+        <div class="stat">마나: <span class="stat-mana">25</span></div>
+    </div>
+</div>
+
+<div class="skill-card unlocked" data-category="attack">
+    <div class="skill-card-icon">❄️</div>
+    <div class="skill-card-name">Ice Bolt</div>
+    <div class="skill-card-level">Lv.2</div>
+    <div class="skill-card-pronunciation">🔊 "아이스 볼트"</div>
+    <div class="skill-card-desc">얼음 화살을 발사하여 적을 마비시킵니다</div>
+    <div class="skill-card-stats">
+        <div class="stat">공격력: <span class="stat-damage">100</span></div>
+        <div class="stat">마나: <span class="stat-mana">20</span></div>
+    </div>
+</div>
+
+<div class="skill-card unlocked" data-category="attack">
+    <div class="skill-card-icon">⚡</div>
+    <div class="skill-card-name">Lightning Bolt</div>
+    <div class="skill-card-level">Lv.2</div>
+    <div class="skill-card-pronunciation">🔊 "라이트닝 볼트"</div>
+    <div class="skill-card-desc">번개를 발사하여 적을 감전시킵니다</div>
+    <div class="skill-card-stats">
+        <div class="stat">공격력: <span class="stat-damage">140</span></div>
+        <div class="stat">마나: <span class="stat-mana">30</span></div>
+    </div>
+</div>
+
+<div class="skill-card locked" data-category="attack">
+    <div class="skill-card-icon">🔒</div>
+    <div class="skill-card-name">Meteor</div>
+    <div class="skill-card-level">잠김</div>
+    <div class="skill-card-pronunciation">🔊 "메테오"</div>
+    <div class="skill-card-desc">레벨 15 달성 시 해제됩니다</div>
+    <div class="skill-card-stats">
+        <div class="stat">공격력: <span class="stat-damage">300</span></div>
+        <div class="stat">마나: <span class="stat-mana">60</span></div>
+    </div>
+</div>
+
+<!-- 방어 스킬 -->
+<div class="skill-card unlocked" data-category="defense">
+    <div class="skill-card-icon">🛡️</div>
+    <div class="skill-card-name">Magic Shield</div>
+    <div class="skill-card-level">Lv.2</div>
+    <div class="skill-card-pronunciation">🔊 "매직 실드"</div>
+    <div class="skill-card-desc">마법 방어막을 생성합니다</div>
+    <div class="skill-card-stats">
+        <div class="stat">방어력: <span class="stat-defense">+50</span></div>
+        <div class="stat">마나: <span class="stat-mana">20</span></div>
+    </div>
+</div>
+
+<div class="skill-card unlocked" data-category="defense">
+    <div class="skill-card-icon">✨</div>
+    <div class="skill-card-name">Barrier</div>
+    <div class="skill-card-level">Lv.1</div>
+    <div class="skill-card-pronunciation">🔊 "배리어"</div>
+    <div class="skill-card-desc">물리 공격을 막는 보호막을 생성합니다</div>
+    <div class="skill-card-stats">
+        <div class="stat">방어력: <span class="stat-defense">+30</span></div>
+        <div class="stat">마나: <span class="stat-mana">15</span></div>
+    </div>
+</div>
+
+<div class="skill-card locked" data-category="defense">
+    <div class="skill-card-icon">🔒</div>
+    <div class="skill-card-name">Fortress</div>
+    <div class="skill-card-level">잠김</div>
+    <div class="skill-card-pronunciation">🔊 "포트리스"</div>
+    <div class="skill-card-desc">방어 레벨 10 달성 시 해제</div>
+    <div class="skill-card-stats">
+        <div class="stat">방어력: <span class="stat-defense">+100</span></div>
+        <div class="stat">마나: <span class="stat-mana">40</span></div>
+    </div>
+</div>
+
+<!-- 치유 스킬 -->
+<div class="skill-card unlocked" data-category="healing">
+    <div class="skill-card-icon">💚</div>
+    <div class="skill-card-name">Heal</div>
+    <div class="skill-card-level">Lv.3</div>
+    <div class="skill-card-pronunciation">🔊 "힐"</div>
+    <div class="skill-card-desc">체력을 즉시 회복합니다</div>
+    <div class="skill-card-stats">
+        <div class="stat">회복량: <span class="stat-healing">80</span></div>
+        <div class="stat">마나: <span class="stat-mana">15</span></div>
+    </div>
+</div>
+
+<div class="skill-card unlocked" data-category="healing">
+    <div class="skill-card-icon">💙</div>
+    <div class="skill-card-name">Mana Recovery</div>
+    <div class="skill-card-level">Lv.2</div>
+    <div class="skill-card-pronunciation">🔊 "마나 리커버리"</div>
+    <div class="skill-card-desc">마나를 회복합니다</div>
+    <div class="skill-card-stats">
+        <div class="stat">마나 회복: <span class="stat-healing">+40</span></div>
+        <div class="stat">소모: <span class="stat-mana">10</span></div>
+    </div>
+</div>
+
+<div class="skill-card locked" data-category="healing">
+    <div class="skill-card-icon">🔒</div>
+    <div class="skill-card-name">Resurrection</div>
+    <div class="skill-card-level">잠김</div>
+    <div class="skill-card-pronunciation">🔊 "레저렉션"</div>
+    <div class="skill-card-desc">치유 마스터리 달성 시 해제</div>
+    <div class="skill-card-stats">
+        <div class="stat">효과: <span class="stat-special">완전 회복</span></div>
+        <div class="stat">마나: <span class="stat-mana">100</span></div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 룬업그레이드 오버레이 -->
+<div class="rune-overlay" id="runeOverlay">
+    <div class="rune-container">
+        <div class="rune-header">
+            <div class="rune-title">
+                <span class="rune-icon">�</span>
+                <h2>룬 업그레이드</h2>
+            </div>
+            <div class="rune-currency">
+                <span class="rune-stone-icon">🔮</span>
+                <span class="rune-count" id="runeCount">12</span>
+                <span class="rune-text">룬석</span>
+            </div>
+            <button class="rune-close" id="runeClose">✕</button>
+        </div>
+
+        <div class="rune-content">
+            <div class="rune-description">
+                <p>웨이브 클리어 보상으로 룬석을 획득했습니다!</p>
+                <p>스킬을 강화하거나 새로운 스킬을 해제하세요.</p>
+            </div>
+
+            <!-- 룸업그레이드 스킬 리스트 -->
+            <div class="rune-skills" id="runeSkills">
+                <!-- 해제된 스킬들 -->
+                <div class="skill-upgrade-card" data-skill="fireball" data-category="unlocked">
+                    <div class="skill-header">
+                        <div class="skill-info">
+                            <span class="skill-icon">🔥</span>
+                            <div class="skill-details">
+                                <div class="skill-name">Fireball</div>
+                                <div class="skill-level">Lv.<span id="fireball-level">3</span></div>
+                            </div>
+                        </div>
+                        <div class="skill-enhancement">
+                            <div class="enhancement-count">강화 <span id="fireball-enhancement">2</span>회</div>
+                        </div>
+                    </div>
+                    <div class="skill-stats">
+                        <div class="current-stats">
+                            <span>공격력: <span class="stat-value" id="fireball-damage">120</span></span>
+                            <span>마나: <span class="stat-value">25</span></span>
+                        </div>
+                    </div>
+                    <div class="skill-upgrade-controls">
+                        <button class="upgrade-btn minus-btn" data-action="decrease" data-skill="fireball">-</button>
+                        <div class="upgrade-info">
+                            <span class="upgrade-amount" id="fireball-upgrade-amount">0</span>
+                            <span class="upgrade-cost">
+                                🔮 <span id="fireball-total-cost">0</span>
+                            </span>
+                        </div>
+                        <button class="upgrade-btn plus-btn" data-action="increase" data-skill="fireball">+</button>
+                    </div>
+                    <div class="next-stats" id="fireball-next-stats" style="display: none;">
+                        → 공격력: <span class="next-value" id="fireball-next-damage">120</span>
+                    </div>
+                </div>
+
+                <div class="skill-upgrade-card" data-skill="ice-bolt" data-category="unlocked">
+                    <div class="skill-header">
+                        <div class="skill-info">
+                            <span class="skill-icon">❄️</span>
+                            <div class="skill-details">
+                                <div class="skill-name">Ice Bolt</div>
+                                <div class="skill-level">Lv.<span id="ice-bolt-level">2</span></div>
+                            </div>
+                        </div>
+                        <div class="skill-enhancement">
+                            <div class="enhancement-count">강화 <span id="ice-bolt-enhancement">1</span>회</div>
+                        </div>
+                    </div>
+                    <div class="skill-stats">
+                        <div class="current-stats">
+                            <span>공격력: <span class="stat-value" id="ice-bolt-damage">100</span></span>
+                            <span>마나: <span class="stat-value">20</span></span>
+                        </div>
+                    </div>
+                    <div class="skill-upgrade-controls">
+                        <button class="upgrade-btn minus-btn" data-action="decrease" data-skill="ice-bolt">-</button>
+                        <div class="upgrade-info">
+                            <span class="upgrade-amount" id="ice-bolt-upgrade-amount">0</span>
+                            <span class="upgrade-cost">
+                                🔮 <span id="ice-bolt-total-cost">0</span>
+                            </span>
+                        </div>
+                        <button class="upgrade-btn plus-btn" data-action="increase" data-skill="ice-bolt">+</button>
+                    </div>
+                    <div class="next-stats" id="ice-bolt-next-stats" style="display: none;">
+                        → 공격력: <span class="next-value" id="ice-bolt-next-damage">100</span>
+                    </div>
+                </div>
+
+                <div class="skill-upgrade-card" data-skill="heal" data-category="unlocked">
+                    <div class="skill-header">
+                        <div class="skill-info">
+                            <span class="skill-icon">💚</span>
+                            <div class="skill-details">
+                                <div class="skill-name">Heal</div>
+                                <div class="skill-level">Lv.<span id="heal-level">3</span></div>
+                            </div>
+                        </div>
+                        <div class="skill-enhancement">
+                            <div class="enhancement-count">강화 <span id="heal-enhancement">0</span>회</div>
+                        </div>
+                    </div>
+                    <div class="skill-stats">
+                        <div class="current-stats">
+                            <span>회복량: <span class="stat-value" id="heal-amount">80</span></span>
+                            <span>마나: <span class="stat-value">15</span></span>
+                        </div>
+                    </div>
+                    <div class="skill-upgrade-controls">
+                        <button class="upgrade-btn minus-btn" data-action="decrease" data-skill="heal">-</button>
+                        <div class="upgrade-info">
+                            <span class="upgrade-amount" id="heal-upgrade-amount">0</span>
+                            <span class="upgrade-cost">
+                                🔮 <span id="heal-total-cost">0</span>
+                            </span>
+                        </div>
+                        <button class="upgrade-btn plus-btn" data-action="increase" data-skill="heal">+</button>
+                    </div>
+                    <div class="next-stats" id="heal-next-stats" style="display: none;">
+                        → 회복량: <span class="next-value" id="heal-next-amount">80</span>
+                    </div>
+                </div>
+
+                <!-- 잠긴 스킬들 -->
+                <div class="skill-upgrade-card locked" data-skill="meteor" data-category="locked">
+                    <div class="skill-header">
+                        <div class="skill-info">
+                            <span class="skill-icon">�</span>
+                            <div class="skill-details">
+                                <div class="skill-name">Meteor</div>
+                                <div class="skill-level">잠김</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="unlock-info">
+                        <div class="unlock-desc">강력한 운석 공격 스킬</div>
+                        <button class="unlock-btn" data-skill="meteor" data-cost="8">
+                            🔮 8 - 해제하기
+                        </button>
+                    </div>
+                </div>
+
+                <div class="skill-upgrade-card locked" data-skill="fortress" data-category="locked">
+                    <div class="skill-header">
+                        <div class="skill-info">
+                            <span class="skill-icon">�</span>
+                            <div class="skill-details">
+                                <div class="skill-name">Fortress</div>
+                                <div class="skill-level">잠김</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="unlock-info">
+                        <div class="unlock-desc">최강 방어막 스킬</div>
+                        <button class="unlock-btn" data-skill="fortress" data-cost="15">
+                            🔮 15 - 해제하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rune-actions">
+                <button class="rune-action-btn skip-btn" id="skipUpgrade">나중에</button>
+                <button class="rune-action-btn continue-btn" id="continueGame">계속하기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 메뉴 오버레이 -->
+<div class="menu-overlay" id="menuOverlay">
+    <div class="menu-container">
+        <div class="menu-header">
+            <h2>게임 메뉴</h2>
+            <button class="menu-close" id="menuClose">✕</button>
+        </div>
+        <div class="menu-options">
+            <button class="menu-option" id="continueBtn">
+                <span>▶️</span> 계속하기
+            </button>
+            <button class="menu-option" id="restartBtn">
+                <span>🔄</span> 처음부터
+            </button>
+            <button class="menu-option" id="optionsBtn">
+                <span>⚙️</span> 옵션
+            </button>
+            <button class="menu-option" id="mainMenuBtn">
+                <span>🏠</span> 메인 메뉴
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+    // 전역 변수
+    let voiceStage = 'idle'; // idle, listening, analyzing, result
+    let skillPageVisible = false;
+    let currentCategory = 'all';
+    let selectedSkillIndex = 0;
+    let progressInterval = null;
+    let runeStones = 12; // 룬석 개수
+    let runeUpgradeVisible = false;
+
+    // 스킬 데이터 관리
+    let skillData = {
+        'fireball': { level: 3, enhancement: 2, baseDamage: 100, upgradeAmount: 0, cost: 3 },
+        'ice-bolt': { level: 2, enhancement: 1, baseDamage: 80, upgradeAmount: 0, cost: 3 },
+        'heal': { level: 3, enhancement: 0, baseAmount: 80, upgradeAmount: 0, cost: 2 },
+        'meteor': { unlocked: false, cost: 8 },
+        'fortress': { unlocked: false, cost: 15 }
+    };
+
+    // DOM 요소들
+    const voiceOverlay = document.getElementById('voiceOverlay');
+    const skillOverlay = document.getElementById('skillOverlay');
+    const runeOverlay = document.getElementById('runeOverlay');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuBtn = document.querySelector('.menu-btn');
+    const menuClose = document.getElementById('menuClose');
+
+    // 초기화
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeEventListeners();
+        initializeSkillCategories();
+        filterSkillsByCategory('all');
+    });
+
+    // 이벤트 리스너 초기화
+    function initializeEventListeners() {
+        // 키보드 이벤트
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('keyup', handleKeyUp);
+
+        // 메뉴 버튼
+        menuBtn.addEventListener('click', () => showOverlay('menu'));
+        menuClose.addEventListener('click', () => hideOverlay('menu'));
+
+        // 룬업그레이드 버튼들
+        document.getElementById('runeClose').addEventListener('click', () => hideOverlay('rune'));
+        document.getElementById('skipUpgrade').addEventListener('click', () => hideOverlay('rune'));
+        document.getElementById('continueGame').addEventListener('click', () => applyUpgrades());
+
+        // 카테고리 전환 이벤트 제거됨
+
+        // 업그레이드 버튼 이벤트
+        document.querySelectorAll('.upgrade-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.dataset.action;
+                const skill = btn.dataset.skill;
+                handleSkillUpgrade(skill, action);
+            });
+        });
+
+        // 스킬 해제 버튼 이벤트
+        document.querySelectorAll('.unlock-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const skill = btn.dataset.skill;
+                const cost = parseInt(btn.dataset.cost);
+                handleSkillUnlock(skill, cost);
+            });
+        });
+
+        // 메뉴 옵션들
+        document.getElementById('continueBtn').addEventListener('click', () => hideOverlay('menu'));
+        document.getElementById('restartBtn').addEventListener('click', () => {
+            if (confirm('정말로 처음부터 시작하시겠습니까?')) {
+                location.reload();
+            }
+        });
+
+        // 테스트용: R키로 룬업그레이드 화면 열기
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'KeyR' && !runeUpgradeVisible) {
+                showRuneUpgrade();
+            }
+        });
+    }
+
+    // 키보드 이벤트 처리
+    let spaceKeyDown = false;
+    function handleKeyDown(e) {
+        switch (e.code) {
+            case 'Space':
+                e.preventDefault();
+                if (!spaceKeyDown) {
+                    spaceKeyDown = true;
+                    handleVoiceRecognition();
+                }
+                break;
+
+            case 'ShiftLeft':
+            case 'ShiftRight':
+                e.preventDefault();
+                toggleSkillBook();
+                break;
+
+            case 'Escape':
+                hideAllOverlays();
+                break;
+        }
+
+        // 스킬북이 열려있을 때 네비게이션
+        if (skillPageVisible) {
+            switch (e.code) {
+                case 'KeyW': navigateSkill('up'); break;
+                case 'KeyS': navigateSkill('down'); break;
+                case 'KeyA': navigateSkill('left'); break;
+                case 'KeyD': navigateSkill('right'); break;
+                case 'KeyQ': switchCategory('prev'); break;
+                case 'KeyE': switchCategory('next'); break;
+            }
+        }
+    }
+
+    function handleKeyUp(e) {
+        if (e.code === 'Space') {
+            spaceKeyDown = false;
+        }
+    }
+
+    // 음성 인식 처리 (자동 진행 시스템)
+    function handleVoiceRecognition() {
+        if (voiceStage === 'idle') {
+            startVoiceRecognition();
+        }
+        // listening 상태일 때는 아무것도 하지 않음 (자동 진행)
+    }
+
+    function startVoiceRecognition() {
+        voiceStage = 'listening';
+        showOverlay('voice');
+        showVoiceStage('listening');
+        console.log('음성 인식 시작 - 스킬 이름을 말해주세요');
+
+        // 2초 후 자동으로 결과 화면으로 전환
+        setTimeout(() => {
+            processVoiceAndShowResult();
+        }, 2000);
+    }
+
+    function processVoiceAndShowResult() {
+        voiceStage = 'result';
+        showVoiceStage('result');
+
+        // 랜덤 스킬 이름 생성
+        const skillNames = ['파이어볼', '아이스볼트', '라이트닝', '힐링', '쉴드', '메테오'];
+        const randomSkill = skillNames[Math.floor(Math.random() * skillNames.length)];
+
+        // 스킬 이름을 글자별로 분리하여 HTML 생성
+        const skillNameResult = document.getElementById('skillNameResult');
+        skillNameResult.innerHTML = '';
+
+        const chars = randomSkill.split('');
+        chars.forEach((char, index) => {
+            const charSpan = document.createElement('span');
+            charSpan.className = 'char';
+            charSpan.textContent = char;
+            skillNameResult.appendChild(charSpan);
+        });
+
+        // 전체 정확도 계산
+        let totalAccuracy = 0;
+
+        // 각 글자별 정확도 적용 (애니메이션 효과)
+        setTimeout(() => {
+            const charElements = document.querySelectorAll('.char');
+            charElements.forEach((char, index) => {
+                setTimeout(() => {
+                    const charAccuracy = Math.floor(Math.random() * 101);
+                    totalAccuracy += charAccuracy;
+
+                    // 정확도별 클래스 적용
+                    const accuracyClass = getAccuracyClass(charAccuracy);
+                    char.className = `char ${accuracyClass}`;
+
+                    // 마지막 글자 처리 후 전체 정확도 표시
+                    if (index === charElements.length - 1) {
+                        const avgAccuracy = Math.floor(totalAccuracy / charElements.length);
+                        document.getElementById('accuracyPercent').textContent = avgAccuracy + '%';
+                    }
+                }, index * 200);
+            });
+        }, 500);
+
+        // 3초 후 팝업 닫기
+        setTimeout(() => {
+            hideOverlay('voice');
+            voiceStage = 'idle';
+        }, 4000);
+    }
+
+    function getAccuracyClass(accuracy) {
+        if (accuracy >= 95) return 'accuracy-100';
+        else if (accuracy >= 85) return 'accuracy-90';
+        else if (accuracy >= 75) return 'accuracy-80';
+        else if (accuracy >= 65) return 'accuracy-70';
+        else if (accuracy >= 55) return 'accuracy-60';
+        else if (accuracy >= 45) return 'accuracy-50';
+        else if (accuracy >= 35) return 'accuracy-40';
+        else if (accuracy >= 25) return 'accuracy-30';
+        else if (accuracy >= 15) return 'accuracy-20';
+        else if (accuracy >= 5) return 'accuracy-10';
+        else return 'accuracy-0';
+    }
+
+    // 스킬북 토글
+    function toggleSkillBook() {
+        if (skillPageVisible) {
+            hideOverlay('skill');
+            skillPageVisible = false;
+        } else {
+            showOverlay('skill');
+            skillPageVisible = true;
+            updateSelectedSkill();
+        }
+    }
+
+    // 스킬 네비게이션
+    function navigateSkill(direction) {
+        const visibleCards = getVisibleSkillCards();
+        const gridCols = 3;
+
+        switch (direction) {
+            case 'up':
+                if (selectedSkillIndex >= gridCols) {
+                    selectedSkillIndex -= gridCols;
+                }
+                break;
+            case 'down':
+                if (selectedSkillIndex + gridCols < visibleCards.length) {
+                    selectedSkillIndex += gridCols;
+                }
+                break;
+            case 'left':
+                if (selectedSkillIndex > 0) {
+                    selectedSkillIndex--;
+                }
+                break;
+            case 'right':
+                if (selectedSkillIndex < visibleCards.length - 1) {
+                    selectedSkillIndex++;
+                }
+                break;
+        }
+        updateSelectedSkill();
+    }
+
+    // 카테고리 전환
+    function switchCategory(direction) {
+        const categories = ['all', 'attack', 'defense', 'healing'];
+        let currentIndex = categories.indexOf(currentCategory);
+
+        if (direction === 'next') {
+            currentIndex = (currentIndex + 1) % categories.length;
+        } else {
+            currentIndex = (currentIndex - 1 + categories.length) % categories.length;
+        }
+
+        currentCategory = categories[currentIndex];
+        selectedSkillIndex = 0;
+
+        // 카테고리 UI 업데이트
+        document.querySelectorAll('.skill-category').forEach(cat => {
+            cat.classList.remove('active');
+            if (cat.dataset.category === currentCategory) {
+                cat.classList.add('active');
+            }
+        });
+
+        filterSkillsByCategory(currentCategory);
+        updateSelectedSkill();
+    }
+
+    // 유틸리티 함수들
+    function showOverlay(type) {
+        hideAllOverlays();
+        switch (type) {
+            case 'voice':
+                voiceOverlay.classList.add('show');
+                break;
+            case 'skill':
+                skillOverlay.classList.add('show');
+                break;
+            case 'menu':
+                menuOverlay.classList.add('show');
+                break;
+        }
+    }
+
+    function hideOverlay(type) {
+        switch (type) {
+            case 'voice':
+                voiceOverlay.classList.remove('show');
+                break;
+            case 'skill':
+                skillOverlay.classList.remove('show');
+                break;
+            case 'menu':
+                menuOverlay.classList.remove('show');
+                break;
+        }
+    }
+
+    function hideAllOverlays() {
+        voiceOverlay.classList.remove('show');
+        skillOverlay.classList.remove('show');
+        menuOverlay.classList.remove('show');
+        skillPageVisible = false;
+        voiceStage = 'idle';
+    }
+
+    function showVoiceStage(stage) {
+        document.getElementById('listeningStage').style.display = stage === 'listening' ? 'block' : 'none';
+        document.getElementById('resultStage').style.display = stage === 'result' ? 'block' : 'none';
+    }
+
+    function initializeSkillCategories() {
+        document.querySelectorAll('.skill-category').forEach(category => {
+            category.addEventListener('click', () => {
+                const categoryName = category.dataset.category;
+                currentCategory = categoryName;
+                selectedSkillIndex = 0;
+
+                document.querySelectorAll('.skill-category').forEach(c => c.classList.remove('active'));
+                category.classList.add('active');
+
+                filterSkillsByCategory(categoryName);
+                updateSelectedSkill();
+            });
+        });
+    }
+
+    function filterSkillsByCategory(category) {
+        document.querySelectorAll('.skill-card').forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    function getVisibleSkillCards() {
+        return Array.from(document.querySelectorAll('.skill-card'))
+            .filter(card => card.style.display !== 'none');
+    }
+
+    function updateSelectedSkill() {
+        const visibleCards = getVisibleSkillCards();
+
+        // 모든 카드에서 선택 상태 제거
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.classList.remove('selected');
+        });
+
+        // 현재 선택된 카드에 선택 상태 추가
+        if (visibleCards[selectedSkillIndex]) {
+            visibleCards[selectedSkillIndex].classList.add('selected');
+        }
+    }
+
+    // 룬업그레이드 관련 함수들
+    function showRuneUpgrade() {
+        runeUpgradeVisible = true;
+        updateRuneCount();
+        updateAllSkillDisplays();
+        showAllSkills();
+        showOverlay('rune');
+    }
+
+    function updateRuneCount() {
+        document.getElementById('runeCount').textContent = runeStones;
+    }
+
+    function updateAllSkillDisplays() {
+        Object.keys(skillData).forEach(skillName => {
+            updateSkillDisplay(skillName);
+        });
+        updateUnlockButtons();
+    }
+
+    function updateSkillDisplay(skillName) {
+        const skill = skillData[skillName];
+        if (!skill.unlocked && skill.hasOwnProperty('unlocked')) return;
+
+        // 현재 스탯 업데이트
+        const levelElement = document.getElementById(`${skillName}-level`);
+        const enhancementElement = document.getElementById(`${skillName}-enhancement`);
+        const upgradeAmountElement = document.getElementById(`${skillName}-upgrade-amount`);
+        const totalCostElement = document.getElementById(`${skillName}-total-cost`);
+
+        if (levelElement) levelElement.textContent = skill.level;
+        if (enhancementElement) enhancementElement.textContent = skill.enhancement;
+        if (upgradeAmountElement) upgradeAmountElement.textContent = skill.upgradeAmount;
+        if (totalCostElement) totalCostElement.textContent = skill.upgradeAmount * skill.cost;
+
+        // 스탯 값 업데이트
+        if (skillName === 'fireball') {
+            const damageElement = document.getElementById('fireball-damage');
+            const nextDamageElement = document.getElementById('fireball-next-damage');
+            if (damageElement) damageElement.textContent = skill.baseDamage + (skill.enhancement * 30);
+            if (nextDamageElement) nextDamageElement.textContent = skill.baseDamage + ((skill.enhancement + skill.upgradeAmount) * 30);
+        } else if (skillName === 'ice-bolt') {
+            const damageElement = document.getElementById('ice-bolt-damage');
+            const nextDamageElement = document.getElementById('ice-bolt-next-damage');
+            if (damageElement) damageElement.textContent = skill.baseDamage + (skill.enhancement * 20);
+            if (nextDamageElement) nextDamageElement.textContent = skill.baseDamage + ((skill.enhancement + skill.upgradeAmount) * 20);
+        } else if (skillName === 'heal') {
+            const amountElement = document.getElementById('heal-amount');
+            const nextAmountElement = document.getElementById('heal-next-amount');
+            if (amountElement) amountElement.textContent = skill.baseAmount + (skill.enhancement * 40);
+            if (nextAmountElement) nextAmountElement.textContent = skill.baseAmount + ((skill.enhancement + skill.upgradeAmount) * 40);
+        }
+
+        // 다음 스탯 표시/숨김
+        const nextStatsElement = document.getElementById(`${skillName}-next-stats`);
+        if (nextStatsElement) {
+            nextStatsElement.style.display = skill.upgradeAmount > 0 ? 'block' : 'none';
+        }
+
+        // 버튼 상태 업데이트
+        const minusBtn = document.querySelector(`[data-action="decrease"][data-skill="${skillName}"]`);
+        const plusBtn = document.querySelector(`[data-action="increase"][data-skill="${skillName}"]`);
+
+        if (minusBtn) minusBtn.disabled = skill.upgradeAmount <= 0;
+        if (plusBtn) plusBtn.disabled = runeStones < skill.cost;
+    }
+
+    function updateUnlockButtons() {
+        document.querySelectorAll('.unlock-btn').forEach(btn => {
+            const cost = parseInt(btn.dataset.cost);
+            btn.disabled = runeStones < cost;
+            if (runeStones < cost) {
+                btn.style.opacity = '0.6';
+            } else {
+                btn.style.opacity = '1';
+            }
+        });
+    }
+
+    function handleSkillUpgrade(skillName, action) {
+        const skill = skillData[skillName];
+
+        if (action === 'increase') {
+            // 스킬이 잠겨있다면 먼저 해금
+            if (!skill.unlocked && runeStones >= skill.unlockCost) {
+                runeStones -= skill.unlockCost;
+                skill.unlocked = true;
+                unlockSkill(skillName);
+            }
+            // 해금된 스킬이면 업그레이드
+            else if (skill.unlocked && runeStones >= skill.cost) {
+                skill.upgradeAmount++;
+                runeStones -= skill.cost;
+            }
+        } else if (action === 'decrease') {
+            if (skill.upgradeAmount > 0) {
+                skill.upgradeAmount--;
+                runeStones += skill.cost;
+            }
+        }
+
+        updateRuneCount();
+        updateSkillDisplay(skillName);
+        updateAllSkillDisplays();
+    }
+
+    function handleSkillUnlock(skillName, cost) {
+        if (runeStones >= cost) {
+            runeStones -= cost;
+            skillData[skillName].unlocked = true;
+
+            updateRuneCount();
+            unlockSkill(skillName);
+            updateSkillDisplay(skillName);
+
+            console.log(`${skillName} 스킬 해제됨, 남은 룬석: ${runeStones}`);
+        } else {
+            alert(`룬석이 부족합니다! (필요: ${cost}, 보유: ${runeStones})`);
+        }
+    }
+
+    function showAllSkills() {
+        // 모든 스킬 카드 표시
+        document.querySelectorAll('.skill-upgrade-card').forEach(card => {
+            card.style.display = 'block';
+        });
+    }
+
+    function applyUpgrades() {
+        let totalCost = 0;
+        let upgradeCount = 0;
+
+        // 모든 업그레이드 적용
+        Object.keys(skillData).forEach(skillName => {
+            const skill = skillData[skillName];
+            if (skill.upgradeAmount > 0) {
+                skill.enhancement += skill.upgradeAmount;
+                totalCost += skill.upgradeAmount * skill.cost;
+                upgradeCount += skill.upgradeAmount;
+                skill.upgradeAmount = 0; // 업그레이드 임시 카운터 리셋
+            }
+        });
+
+        if (upgradeCount > 0) {
+            alert(`${upgradeCount}개의 업그레이드가 적용되었습니다! (사용된 룬석: ${totalCost})`);
+        }
+
+        hideOverlay('rune');
+    }
+
+    function enhanceSkill(skillName) {
+        // 스킬 강화 로직 (실제 구현에서는 스킬 데이터 업데이트)
+        console.log(`${skillName} 스킬 강화됨`);
+
+        // UI에서 해당 스킬 카드 찾아서 레벨업 표시
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach(card => {
+            const cardName = card.querySelector('.skill-card-name').textContent.toLowerCase();
+            if (cardName.includes(skillName.toLowerCase())) {
+                const levelElement = card.querySelector('.skill-card-level');
+                if (levelElement) {
+                    // 레벨 업그레이드 표시
+                    levelElement.style.color = '#4fc3f7';
+                    levelElement.style.textShadow = '0 0 10px #4fc3f7';
+                }
+            }
+        });
+    }
+
+    function unlockSkill(skillName) {
+        // 스킬 해제 로직
+        console.log(`${skillName} 스킬 해제됨`);
+
+        // UI에서 해당 스킬 카드를 잠금해제 상태로 변경
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach(card => {
+            const cardName = card.querySelector('.skill-card-name').textContent.toLowerCase();
+            if (cardName.includes(skillName.toLowerCase())) {
+                card.classList.remove('locked');
+                card.classList.add('unlocked');
+
+                // 아이콘 변경
+                const iconElement = card.querySelector('.skill-card-icon');
+                if (skillName === 'meteor') {
+                    iconElement.textContent = '☄️';
+                } else if (skillName === 'fortress') {
+                    iconElement.textContent = '🏰';
+                }
+
+                // 레벨 표시 변경
+                const levelElement = card.querySelector('.skill-card-level');
+                if (levelElement) {
+                    levelElement.textContent = 'Lv.1';
+                    levelElement.style.color = '#4fc3f7';
+                }
+            }
+        });
+    }
+
+    // 오버레이 표시/숨김 함수 수정
+    function showOverlay(type) {
+        switch (type) {
+            case 'voice':
+                voiceOverlay.classList.add('show');
+                break;
+            case 'skill':
+                skillOverlay.classList.add('show');
+                break;
+            case 'rune':
+                runeOverlay.classList.add('show');
+                break;
+            case 'menu':
+                menuOverlay.classList.add('show');
+                break;
+        }
+    }
+
+    function hideOverlay(type) {
+        switch (type) {
+            case 'voice':
+                voiceOverlay.classList.remove('show');
+                break;
+            case 'skill':
+                skillOverlay.classList.remove('show');
+                break;
+            case 'rune':
+                runeOverlay.classList.remove('show');
+                runeUpgradeVisible = false;
+                break;
+            case 'menu':
+                menuOverlay.classList.remove('show');
+                break;
+        }
+    }
+
+    function hideAllOverlays() {
+        voiceOverlay.classList.remove('show');
+        skillOverlay.classList.remove('show');
+        runeOverlay.classList.remove('show');
+        menuOverlay.classList.remove('show');
+        skillPageVisible = false;
+        runeUpgradeVisible = false;
+        voiceStage = 'idle';
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Spells - 스토리모드</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-menu">
+        <div class="currency-display">
+            <div class="currency-item">
+                <span class="currency-icon">💎</span>
+                <span class="currency-divider">|</span>
+                <span class="currency-amount">3</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-icon">🔮</span>
+                <span class="currency-divider">|</span>
+                <span class="currency-amount">11</span>
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h1 class="game-title">LOST SPELLS</h1>
+            <div class="subtitle">MAGIC ADVENTURE GAME</div>
+        </div>
+
+        <div class="menu-section">
+            <div class="menu-buttons">
+                <button class="menu-btn gameplay-btn">
+                    <span class="btn-icon">⚔️</span>
+                    <span class="btn-text">START GAME</span>
+                </button>
+
+                <button class="menu-btn options-btn">
+                    <span class="btn-icon">⚙️</span>
+                    <span class="btn-text">SETTINGS</span>
+                </button>
+
+                <button class="menu-btn shop-btn">
+                    <span class="btn-icon">🏪</span>
+                    <span class="btn-text">SHOP</span>
+                </button>
+
+                <button class="menu-btn exit-btn">
+                    <span class="btn-icon">🚪</span>
+                    <span class="btn-text">QUIT</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="background-decoration">
+            <div class="magic-circle circle1"></div>
+            <div class="magic-circle circle2"></div>
+            <div class="magic-particle particle1"></div>
+            <div class="magic-particle particle2"></div>
+            <div class="magic-particle particle3"></div>
+            <div class="magic-particle particle4"></div>
+            <div class="magic-particle particle5"></div>
+        </div>
+    </div>
+
+    <!-- 스토리모드 선택 팝업 -->
+    <div class="modal-overlay story-select">
+        <div class="story-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">📖 STORY MODE</h2>
+                <button class="modal-close-btn">×</button>
+            </div>
+
+            <div class="story-options">
+                <button class="story-btn new-game-btn">
+                    <span class="story-icon">✨</span>
+                    <div class="story-content">
+                        <span class="story-title">새로 시작하기</span>
+                        <span class="story-desc">새로운 모험의 시작</span>
+                    </div>
+                </button>
+
+                <button class="story-btn continue-game-btn">
+                    <span class="story-icon">📁</span>
+                    <div class="story-content">
+                        <span class="story-title">이어하기</span>
+                        <span class="story-desc">3개의 세이브 파일</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 세이브 파일 관리 팝업 -->
+    <div class="modal-overlay save-files" style="display: none;">
+        <div class="save-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">📁 세이브 파일 선택</h2>
+                <button class="modal-close-btn save-close">×</button>
+            </div>
+
+            <div class="save-files-container">
+                <!-- 세이브 파일 1 -->
+                <div class="save-file-item" data-save="1">
+                    <div class="save-preview">
+                        <div class="save-thumbnail">🏰</div>
+                        <div class="save-info">
+                            <div class="save-name">모험의 시작</div>
+                            <div class="save-progress">
+                                <span class="chapter-info">챕터 3: 분노의 계곡</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                                <span class="progress-text">45% 완료</span>
+                            </div>
+                            <div class="save-date">2024.03.15 14:30</div>
+                        </div>
+                    </div>
+                    <div class="save-actions">
+                        <button class="save-action-btn play-btn">플레이</button>
+                        <button class="save-action-btn delete-btn">삭제</button>
+                    </div>
+                </div>
+
+                <!-- 세이브 파일 2 -->
+                <div class="save-file-item" data-save="2">
+                    <div class="save-preview">
+                        <div class="save-thumbnail">⚔️</div>
+                        <div class="save-info">
+                            <div class="save-name">마법사의 여정</div>
+                            <div class="save-progress">
+                                <span class="chapter-info">챕터 7: 교만의 탑</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                                <span class="progress-text">78% 완료</span>
+                            </div>
+                            <div class="save-date">2024.03.20 20:45</div>
+                        </div>
+                    </div>
+                    <div class="save-actions">
+                        <button class="save-action-btn play-btn">플레이</button>
+                        <button class="save-action-btn delete-btn">삭제</button>
+                    </div>
+                </div>
+
+                <!-- 세이브 파일 3 -->
+                <div class="save-file-item" data-save="3">
+                    <div class="save-preview">
+                        <div class="save-thumbnail">🔮</div>
+                        <div class="save-info">
+                            <div class="save-name">최후의 전투</div>
+                            <div class="save-progress">
+                                <span class="chapter-info">챕터 10: 칠죄종의 성</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                                <span class="progress-text">95% 완료</span>
+                            </div>
+                            <div class="save-date">2024.03.22 16:20</div>
+                        </div>
+                    </div>
+                    <div class="save-actions">
+                        <button class="save-action-btn play-btn">플레이</button>
+                        <button class="save-action-btn delete-btn">삭제</button>
+                    </div>
+                </div>
+
+                <!-- 새 슬롯 추가 -->
+                <div class="save-file-item new-slot">
+                    <div class="new-slot-content">
+                        <div class="new-slot-icon">➕</div>
+                        <div class="new-slot-text">새 세이브 슬롯 추가</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="save-footer">
+                <div class="save-info-text">세이브 파일을 선택하여 모험을 계속하세요</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 삭제 확인 팝업 -->
+    <div class="modal-overlay delete-confirm" style="display: none;">
+        <div class="confirm-modal">
+            <div class="confirm-header">
+                <h3 class="confirm-title">⚠️ 삭제 확인</h3>
+            </div>
+            <div class="confirm-content">
+                <p class="confirm-message">정말로 이 세이브 파일을 삭제하시겠습니까?</p>
+                <p class="confirm-warning">삭제된 데이터는 복구할 수 없습니다.</p>
+            </div>
+            <div class="confirm-actions">
+                <button class="confirm-btn cancel-btn">취소</button>
+                <button class="confirm-btn delete-confirm-btn">삭제</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentDeleteTarget = null;
+
+        // 새로 시작하기 버튼
+        document.querySelector('.new-game-btn').addEventListener('click', function () {
+            alert('새로운 모험을 시작합니다!');
+        });
+
+        // 이어하기 버튼 - 세이브 파일 창 열기
+        document.querySelector('.continue-game-btn').addEventListener('click', function () {
+            document.querySelector('.modal-overlay.story-select').style.display = 'none';
+            document.querySelector('.modal-overlay.save-files').style.display = 'flex';
+        });
+
+        // 세이브 파일 창 닫기
+        document.querySelector('.save-close').addEventListener('click', function () {
+            document.querySelector('.modal-overlay.save-files').style.display = 'none';
+            document.querySelector('.modal-overlay.story-select').style.display = 'flex';
+        });
+
+        // 플레이 버튼들
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const saveItem = this.closest('.save-file-item');
+                const saveName = saveItem.querySelector('.save-name').textContent;
+                alert(`"${saveName}" 세이브로 게임을 시작합니다!`);
+            });
+        });
+
+        // 삭제 버튼들
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                currentDeleteTarget = this.closest('.save-file-item');
+                document.querySelector('.modal-overlay.delete-confirm').style.display = 'flex';
+            });
+        });
+
+        // 삭제 확인
+        document.querySelector('.delete-confirm-btn').addEventListener('click', function () {
+            if (currentDeleteTarget) {
+                const saveName = currentDeleteTarget.querySelector('.save-name').textContent;
+                currentDeleteTarget.style.animation = 'fadeOut 0.3s ease';
+
+                setTimeout(() => {
+                    currentDeleteTarget.remove();
+                    updateSaveCount();
+                }, 300);
+
+                currentDeleteTarget = null;
+                document.querySelector('.modal-overlay.delete-confirm').style.display = 'none';
+            }
+        });
+
+        // 삭제 취소
+        document.querySelector('.cancel-btn').addEventListener('click', function () {
+            currentDeleteTarget = null;
+            document.querySelector('.modal-overlay.delete-confirm').style.display = 'none';
+        });
+
+        // 새 슬롯 추가
+        document.querySelector('.new-slot').addEventListener('click', function () {
+            const saveCount = document.querySelectorAll('.save-file-item:not(.new-slot)').length;
+            if (saveCount >= 5) {
+                alert('최대 5개의 세이브 슬롯만 생성할 수 있습니다.');
+                return;
+            }
+
+            const newSlot = createNewSaveSlot(saveCount + 1);
+            this.parentNode.insertBefore(newSlot, this);
+            updateSaveCount();
+        });
+
+        // 새 세이브 슬롯 생성
+        function createNewSaveSlot(slotNumber) {
+            const newSlot = document.createElement('div');
+            newSlot.className = 'save-file-item';
+            newSlot.dataset.save = slotNumber;
+
+            newSlot.innerHTML = `
+                <div class="save-preview">
+                    <div class="save-thumbnail">🌟</div>
+                    <div class="save-info">
+                        <div class="save-name">새로운 모험 #${slotNumber}</div>
+                        <div class="save-progress">
+                            <span class="chapter-info">챕터 1: 시작의 마을</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text">0% 완료</span>
+                        </div>
+                        <div class="save-date">방금 생성됨</div>
+                    </div>
+                </div>
+                <div class="save-actions">
+                    <button class="save-action-btn play-btn">플레이</button>
+                    <button class="save-action-btn delete-btn">삭제</button>
+                </div>
+            `;
+
+            // 새 슬롯의 이벤트 리스너 추가
+            const playBtn = newSlot.querySelector('.play-btn');
+            const deleteBtn = newSlot.querySelector('.delete-btn');
+
+            playBtn.addEventListener('click', function () {
+                const saveName = newSlot.querySelector('.save-name').textContent;
+                alert(`"${saveName}" 세이브로 게임을 시작합니다!`);
+            });
+
+            deleteBtn.addEventListener('click', function () {
+                currentDeleteTarget = newSlot;
+                document.querySelector('.modal-overlay.delete-confirm').style.display = 'flex';
+            });
+
+            return newSlot;
+        }
+
+        // 세이브 파일 개수 업데이트
+        function updateSaveCount() {
+            const saveCount = document.querySelectorAll('.save-file-item:not(.new-slot)').length;
+            const continueDesc = document.querySelector('.continue-game-btn .story-desc');
+            continueDesc.textContent = `${saveCount}개의 세이브 파일`;
+        }
+
+        // 모달 닫기 버튼
+        document.querySelectorAll('.modal-close-btn').forEach(btn => {
+            if (!btn.classList.contains('save-close')) {
+                btn.addEventListener('click', function () {
+                    document.querySelectorAll('.modal-overlay').forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

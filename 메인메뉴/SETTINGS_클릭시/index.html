@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Spells - 설정</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-menu">
+        <div class="currency-display">
+            <div class="currency-item">
+                <span class="currency-icon">💎</span>
+                <span class="currency-divider">|</span>
+                <span class="currency-amount">3</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-icon">🔮</span>
+                <span class="currency-divider">|</span>
+                <span class="currency-amount">11</span>
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h1 class="game-title">LOST SPELLS</h1>
+            <div class="subtitle">MAGIC ADVENTURE GAME</div>
+        </div>
+
+        <div class="menu-section">
+            <div class="menu-buttons">
+                <button class="menu-btn gameplay-btn">
+                    <span class="btn-icon">⚔️</span>
+                    <span class="btn-text">START GAME</span>
+                </button>
+
+                <button class="menu-btn options-btn">
+                    <span class="btn-icon">⚙️</span>
+                    <span class="btn-text">SETTINGS</span>
+                </button>
+
+                <button class="menu-btn shop-btn">
+                    <span class="btn-icon">🏪</span>
+                    <span class="btn-text">SHOP</span>
+                </button>
+
+                <button class="menu-btn exit-btn">
+                    <span class="btn-icon">🚪</span>
+                    <span class="btn-text">QUIT</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="background-decoration">
+            <div class="magic-circle circle1"></div>
+            <div class="magic-circle circle2"></div>
+            <div class="magic-particle particle1"></div>
+            <div class="magic-particle particle2"></div>
+            <div class="magic-particle particle3"></div>
+            <div class="magic-particle particle4"></div>
+            <div class="magic-particle particle5"></div>
+        </div>
+    </div>
+
+    <!-- 설정 팝업 -->
+    <div class="modal-overlay">
+        <div class="settings-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">SETTINGS</h2>
+                <button class="modal-close-btn">×</button>
+            </div>
+
+            <div class="settings-tabs">
+                <button class="tab-btn active" data-tab="audio">🔊 AUDIO</button>
+                <button class="tab-btn" data-tab="graphics">🖥️ GRAPHICS</button>
+                <button class="tab-btn" data-tab="gameplay">🎮 GAMEPLAY</button>
+            </div>
+
+            <div class="settings-content">
+                <!-- 오디오 설정 -->
+                <div class="tab-content active" id="audio-tab">
+                    <div class="setting-group">
+                        <div class="setting-item mute-all">
+                            <div class="setting-info">
+                                <span class="setting-label">모든 소리 끄기</span>
+                                <span class="setting-desc">게임의 모든 사운드를 음소거</span>
+                            </div>
+                            <button class="toggle-btn" data-state="off">
+                                <span class="toggle-slider"></span>
+                            </button>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-label">마스터 볼륨</span>
+                                <span class="setting-desc">전체 사운드 크기</span>
+                            </div>
+                            <div class="volume-control">
+                                <input type="range" min="0" max="100" value="75" class="volume-slider"
+                                    id="master-volume">
+                                <span class="volume-value">75%</span>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-label">배경음악</span>
+                                <span class="setting-desc">게임 BGM 볼륨</span>
+                            </div>
+                            <div class="volume-control">
+                                <input type="range" min="0" max="100" value="60" class="volume-slider"
+                                    id="music-volume">
+                                <span class="volume-value">60%</span>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-label">효과음</span>
+                                <span class="setting-desc">스킬, UI 사운드 볼륨</span>
+                            </div>
+                            <div class="volume-control">
+                                <input type="range" min="0" max="100" value="80" class="volume-slider" id="sfx-volume">
+                                <span class="volume-value">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 그래픽 설정 -->
+                <div class="tab-content" id="graphics-tab">
+                    <div class="setting-group">
+                        <div class="setting-item resolution-setting">
+                            <div class="setting-info">
+                                <span class="setting-label">해상도</span>
+                                <span class="setting-desc">게임 화면 해상도</span>
+                            </div>
+                            <div class="custom-select">
+                                <button class="select-btn" data-type="resolution">
+                                    <span class="selected-value">1920 x 1080</span>
+                                    <span class="select-arrow">▼</span>
+                                </button>
+                                <div class="select-options">
+                                    <div class="select-option active" data-value="1920x1080">
+                                        <span class="option-text">1920 x 1080</span>
+                                        <span class="option-label">Full HD</span>
+                                    </div>
+                                    <div class="select-option" data-value="1680x1050">
+                                        <span class="option-text">1680 x 1050</span>
+                                        <span class="option-label">WSXGA+</span>
+                                    </div>
+                                    <div class="select-option" data-value="1600x900">
+                                        <span class="option-text">1600 x 900</span>
+                                        <span class="option-label">HD+</span>
+                                    </div>
+                                    <div class="select-option" data-value="1366x768">
+                                        <span class="option-text">1366 x 768</span>
+                                        <span class="option-label">WXGA</span>
+                                    </div>
+                                    <div class="select-option" data-value="1280x720">
+                                        <span class="option-text">1280 x 720</span>
+                                        <span class="option-label">HD</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-item screenmode-setting">
+                            <div class="setting-info">
+                                <span class="setting-label">화면 모드</span>
+                                <span class="setting-desc">디스플레이 표시 방식</span>
+                            </div>
+                            <div class="custom-select">
+                                <button class="select-btn" data-type="screenmode">
+                                    <span class="selected-value">전체화면</span>
+                                    <span class="select-arrow">▼</span>
+                                </button>
+                                <div class="select-options">
+                                    <div class="select-option active" data-value="fullscreen">
+                                        <span class="option-text">전체화면</span>
+                                    </div>
+                                    <div class="select-option" data-value="windowed">
+                                        <span class="option-text">창모드</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-label">수직 동기화</span>
+                                <span class="setting-desc">화면 찢어짐 방지</span>
+                            </div>
+                            <button class="toggle-btn" data-state="on">
+                                <span class="toggle-slider"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 플레이 설정 -->
+                <div class="tab-content" id="gameplay-tab">
+                    <div class="setting-group">
+                        <div class="setting-item voice-test">
+                            <div class="setting-info">
+                                <span class="setting-label">음성인식 기준음 설정</span>
+                                <span class="setting-desc">마법 주문 인식을 위한 기준음 조정</span>
+                            </div>
+                            <button class="test-btn">🎤 테스트하기</button>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-label">HUD 투명도</span>
+                                <span class="setting-desc">게임 UI 요소의 투명도</span>
+                            </div>
+                            <div class="opacity-control">
+                                <input type="range" min="30" max="100" value="85" class="opacity-slider"
+                                    id="hud-opacity">
+                                <span class="opacity-value">85%</span>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <span class="setting-label">음성인식 감도</span>
+                                <span class="setting-desc">주문 인식 민감도 조절</span>
+                            </div>
+                            <div class="sensitivity-control">
+                                <input type="range" min="1" max="10" value="5" class="sensitivity-slider"
+                                    id="voice-sensitivity">
+                                <span class="sensitivity-value">보통</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="settings-btn reset-btn">기본값으로 재설정</button>
+                <button class="settings-btn apply-btn">적용</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 커스텀 선택 UI 기능
+        document.querySelectorAll('.select-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+
+                // 다른 열린 선택창 닫기
+                document.querySelectorAll('.custom-select').forEach(select => {
+                    if (select !== this.parentElement) {
+                        select.classList.remove('active');
+                        select.querySelector('.select-btn').classList.remove('active');
+                    }
+                });
+
+                // 현재 선택창 토글
+                const customSelect = this.parentElement;
+                const isActive = customSelect.classList.contains('active');
+
+                if (isActive) {
+                    customSelect.classList.remove('active');
+                    this.classList.remove('active');
+                } else {
+                    customSelect.classList.add('active');
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // 선택 옵션 클릭 처리
+        document.querySelectorAll('.select-option').forEach(option => {
+            option.addEventListener('click', function () {
+                const customSelect = this.closest('.custom-select');
+                const selectBtn = customSelect.querySelector('.select-btn');
+                const selectedValue = selectBtn.querySelector('.selected-value');
+                const optionText = this.querySelector('.option-text').textContent;
+
+                // 이전 활성 옵션에서 active 클래스 제거
+                customSelect.querySelectorAll('.select-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+
+                // 현재 옵션에 active 클래스 추가
+                this.classList.add('active');
+
+                // 선택된 값 업데이트
+                selectedValue.textContent = optionText;
+
+                // 드롭다운 닫기
+                customSelect.classList.remove('active');
+                selectBtn.classList.remove('active');
+            });
+        });
+
+        // 외부 클릭시 드롭다운 닫기
+        document.addEventListener('click', function () {
+            document.querySelectorAll('.custom-select').forEach(select => {
+                select.classList.remove('active');
+                select.querySelector('.select-btn').classList.remove('active');
+            });
+        });
+
+        // 탭 전환 기능
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 모든 탭 버튼에서 active 클래스 제거
+                document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+
+                // 모든 탭 콘텐츠에서 active 클래스 제거
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // 클릭된 탭 버튼에 active 클래스 추가
+                btn.classList.add('active');
+
+                // 해당 콘텐츠에 active 클래스 추가
+                const tabId = btn.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // 볼륨 슬라이더 실시간 업데이트
+        document.querySelectorAll('.volume-slider').forEach(slider => {
+            slider.addEventListener('input', function () {
+                const valueSpan = this.parentElement.querySelector('.volume-value');
+                valueSpan.textContent = this.value + '%';
+            });
+        });
+
+        // HUD 투명도 슬라이더 실시간 업데이트
+        document.getElementById('hud-opacity').addEventListener('input', function () {
+            const valueSpan = document.querySelector('.opacity-value');
+            valueSpan.textContent = this.value + '%';
+        });
+
+        // 음성인식 감도 슬라이더 실시간 업데이트
+        document.getElementById('voice-sensitivity').addEventListener('input', function () {
+            const valueSpan = document.querySelector('.sensitivity-value');
+            const labels = ['매우 낮음', '낮음', '약간 낮음', '조금 낮음', '보통', '조금 높음', '약간 높음', '높음', '매우 높음', '최고'];
+            valueSpan.textContent = labels[this.value - 1];
+        });
+
+        // 토글 버튼 기능
+        document.querySelectorAll('.toggle-btn').forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const currentState = this.getAttribute('data-state');
+                const newState = currentState === 'on' ? 'off' : 'on';
+                this.setAttribute('data-state', newState);
+            });
+        });
+
+        // 테스트하기 버튼 기능
+        document.querySelector('.test-btn').addEventListener('click', function () {
+            this.textContent = '🎤 테스트 중...';
+            this.style.pointerEvents = 'none';
+
+            // 3초 후 원래 상태로 복구 (실제 게임에서는 음성인식 로직)
+            setTimeout(() => {
+                this.textContent = '🎤 테스트 완료!';
+                setTimeout(() => {
+                    this.textContent = '🎤 테스트하기';
+                    this.style.pointerEvents = 'auto';
+                }, 1000);
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

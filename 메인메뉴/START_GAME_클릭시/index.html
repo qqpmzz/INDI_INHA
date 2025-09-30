@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Spells - 게임모드 선택</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-menu">
+        <div class="currency-display">
+            <div class="currency-item">
+                <span class="currency-icon">💎</span>
+                <span class="currency-divider">|</span>
+                <span class="currency-amount">3</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-icon">🔮</span>
+                <span class="currency-divider">|</span>
+                <span class="currency-amount">11</span>
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h1 class="game-title">LOST SPELLS</h1>
+            <div class="subtitle">MAGIC ADVENTURE GAME</div>
+        </div>
+
+        <div class="menu-section">
+            <div class="menu-buttons">
+                <button class="menu-btn gameplay-btn">
+                    <span class="btn-icon">⚔️</span>
+                    <span class="btn-text">START GAME</span>
+                </button>
+
+                <button class="menu-btn options-btn">
+                    <span class="btn-icon">⚙️</span>
+                    <span class="btn-text">SETTINGS</span>
+                </button>
+
+                <button class="menu-btn shop-btn">
+                    <span class="btn-icon">🏪</span>
+                    <span class="btn-text">SHOP</span>
+                </button>
+
+                <button class="menu-btn exit-btn">
+                    <span class="btn-icon">🚪</span>
+                    <span class="btn-text">QUIT</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="background-decoration">
+            <div class="magic-circle circle1"></div>
+            <div class="magic-circle circle2"></div>
+            <div class="magic-particle particle1"></div>
+            <div class="magic-particle particle2"></div>
+            <div class="magic-particle particle3"></div>
+            <div class="magic-particle particle4"></div>
+            <div class="magic-particle particle5"></div>
+        </div>
+    </div>
+
+    <!-- 게임모드 선택 팝업 -->
+    <div class="modal-overlay">
+        <div class="gamemode-modal">
+            <div class="modal-header">
+                <h2 class="modal-title">SELECT GAME MODE</h2>
+                <button class="modal-close-btn">×</button>
+            </div>
+
+            <div class="gamemode-buttons">
+                <button class="gamemode-btn story-mode">
+                    <span class="gamemode-icon">📖</span>
+                    <div class="gamemode-content">
+                        <span class="gamemode-title">STORY MODE</span>
+                        <span class="gamemode-desc">Follow the epic journey to reclaim lost spells</span>
+                    </div>
+                </button>
+
+                <button class="gamemode-btn chapter-select">
+                    <span class="gamemode-icon">🗂️</span>
+                    <div class="gamemode-content">
+                        <span class="gamemode-title">CHAPTER SELECT</span>
+                        <span class="gamemode-desc">Choose and replay specific chapters</span>
+                    </div>
+                </button>
+
+                <button class="gamemode-btn endless-mode">
+                    <span class="gamemode-icon">♾️</span>
+                    <div class="gamemode-content">
+                        <span class="gamemode-title">ENDLESS MODE</span>
+                        <span class="gamemode-desc">Survive infinite waves of enemies</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 무한모드 상세 팝업 -->
+    <div class="endless-modal-overlay" id="endlessModal">
+        <div class="endless-modal">
+            <div class="endless-modal-header">
+                <h2 class="endless-modal-title">
+                    <span class="endless-icon">🌀</span>
+                    ENDLESS MODE
+                </h2>
+                <button class="endless-close-btn" onclick="closeEndlessModal()">×</button>
+            </div>
+
+            <div class="endless-modal-content">
+                <!-- 모드 설명 -->
+                <div class="mode-description">
+                    <p class="mode-desc-main">모든 챕터의 적들이 무작위로 등장하는 끝없는 도전!</p>
+                    <div class="mode-features">
+                        <div class="feature-tag">🎲 무작위 적</div>
+                        <div class="feature-tag">📈 난이도 증가</div>
+                        <div class="feature-tag">🏆 최고 기록</div>
+                    </div>
+                </div>
+
+                <!-- 최고 기록 -->
+                <div class="best-records">
+                    <h3 class="records-title">👑 최고 기록</h3>
+                    <div class="records-grid">
+                        <div class="record-item">
+                            <span class="record-icon">⭐</span>
+                            <div class="record-info">
+                                <span class="record-label">최고 점수</span>
+                                <span class="record-value" id="bestScore">245,780</span>
+                            </div>
+                        </div>
+                        <div class="record-item">
+                            <span class="record-icon">🌊</span>
+                            <div class="record-info">
+                                <span class="record-label">최대 웨이브</span>
+                                <span class="record-value" id="bestWave">63</span>
+                            </div>
+                        </div>
+                        <div class="record-item">
+                            <span class="record-icon">⏰</span>
+                            <div class="record-info">
+                                <span class="record-label">최장 생존</span>
+                                <span class="record-value" id="bestTime">47:23</span>
+                            </div>
+                        </div>
+                        <div class="record-item skills-record">
+                            <span class="record-icon">✨</span>
+                            <div class="record-info">
+                                <span class="record-label">자주 사용한 스킬</span>
+                                <div class="skill-emojis" id="topSkills">
+                                    <span class="skill-emoji">🔥</span>
+                                    <span class="skill-emoji">❄️</span>
+                                    <span class="skill-emoji">⚡</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 통계 정보 -->
+                <div class="stats-section">
+                    <div class="stat-row">
+                        <span class="stat-label">총 플레이</span>
+                        <span class="stat-value" id="totalPlays">156회</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">평균 웨이브</span>
+                        <span class="stat-value" id="avgWave">18.7</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">처치한 적</span>
+                        <span class="stat-value" id="totalKills">4,892</span>
+                    </div>
+                </div>
+
+                <!-- 시작 버튼 -->
+                <button class="endless-start-btn" onclick="startEndlessMode()">
+                    <span class="start-btn-icon">🚀</span>
+                    <span class="start-btn-text">도전하기</span>
+                </button>
+
+                <div class="endless-tip">
+                    💡 팁: 다양한 속성의 스킬을 조합하여 사용하세요!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 게임모드 선택 팝업 제어
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const gameplayBtn = document.querySelector('.gameplay-btn');
+        const modalCloseBtn = document.querySelector('.modal-close-btn');
+
+        gameplayBtn.addEventListener('click', () => {
+            modalOverlay.style.display = 'flex';
+        });
+
+        modalCloseBtn.addEventListener('click', () => {
+            modalOverlay.style.display = 'none';
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+
+        // 게임모드 버튼 이벤트
+        document.querySelector('.story-mode').addEventListener('click', () => {
+            window.location.href = '../STORY_MODE_선택시/index.html';
+        });
+
+        document.querySelector('.chapter-select').addEventListener('click', () => {
+            window.location.href = '../CHAPTER_SELECT_선택시/index.html';
+        });
+
+        document.querySelector('.endless-mode').addEventListener('click', () => {
+            showEndlessModal();
+        });
+
+        // 무한모드 팝업 제어
+        function showEndlessModal() {
+            document.getElementById('endlessModal').style.display = 'flex';
+            updateEndlessRecords();
+        }
+
+        function closeEndlessModal() {
+            document.getElementById('endlessModal').style.display = 'none';
+        }
+
+        function startEndlessMode() {
+            // 실제 게임 시작
+            window.location.href = '../../게임화면/기본게임화면/index.html?mode=endless';
+        }
+
+        // 기록 업데이트
+        function updateEndlessRecords() {
+            const records = {
+                bestScore: Math.floor(Math.random() * 300000) + 100000,
+                bestWave: Math.floor(Math.random() * 50) + 30,
+                bestTime: generateRandomTime(),
+                totalPlays: Math.floor(Math.random() * 200) + 100,
+                avgWave: (Math.random() * 20 + 15).toFixed(1),
+                totalKills: Math.floor(Math.random() * 6000) + 3000
+            };
+
+            document.getElementById('bestScore').textContent = records.bestScore.toLocaleString();
+            document.getElementById('bestWave').textContent = records.bestWave;
+            document.getElementById('bestTime').textContent = records.bestTime;
+            document.getElementById('totalPlays').textContent = records.totalPlays + '회';
+            document.getElementById('avgWave').textContent = records.avgWave;
+            document.getElementById('totalKills').textContent = records.totalKills.toLocaleString();
+
+            updateSkillEmojis();
+        }
+
+        function generateRandomTime() {
+            const minutes = Math.floor(Math.random() * 50) + 20;
+            const seconds = Math.floor(Math.random() * 60);
+            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function updateSkillEmojis() {
+            const skills = ['🔥', '❄️', '⚡', '💚', '🛡️', '🌟', '💨', '🌙', '☀️', '🔮'];
+            const container = document.getElementById('topSkills');
+            container.innerHTML = '';
+
+            for (let i = 0; i < 3; i++) {
+                const randomSkill = skills[Math.floor(Math.random() * skills.length)];
+                const span = document.createElement('span');
+                span.className = 'skill-emoji';
+                span.textContent = randomSkill;
+                container.appendChild(span);
+            }
+        }
+
+        // ESC 키로 팝업 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modalOverlay.style.display = 'none';
+                closeEndlessModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

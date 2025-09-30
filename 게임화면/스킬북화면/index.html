@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Spells - 스킬북</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        // iframe 내부에서 실행되는지 확인하고, 아니면 기본게임화면으로 리다이렉트
+        if (window.parent === window) {
+            window.location.href = '../기본게임화면/index.html';
+        }
+    </script>
+    <div class="skill-container">
+        <!-- 뒤로가기 버튼 -->
+        <button class="back-btn" onclick="goBack()">
+            <span class="back-icon">←</span>
+            <span class="back-text">게임으로 돌아가기</span>
+        </button>
+
+        <!-- 스킬북 헤더 -->
+        <div class="skill-header">
+            <h2 class="skill-title">
+                <span class="skill-icon">✨</span>
+                스킬 북
+            </h2>
+            <div class="skill-controls">
+                <span>WASD: 이동 | Q/E: 카테고리 | ESC: 돌아가기</span>
+            </div>
+        </div>
+
+        <div class="skill-content">
+            <!-- 카테고리 -->
+            <div class="skill-categories">
+                <div class="skill-category active" data-category="all">
+                    <span class="category-icon">📋</span>
+                    <span class="category-name">전체</span>
+                </div>
+                <div class="skill-category" data-category="attack">
+                    <span class="category-icon">⚔️</span>
+                    <span class="category-name">공격</span>
+                </div>
+                <div class="skill-category" data-category="defense">
+                    <span class="category-icon">🛡️</span>
+                    <span class="category-name">방어</span>
+                </div>
+                <div class="skill-category" data-category="healing">
+                    <span class="category-icon">💚</span>
+                    <span class="category-name">치유</span>
+                </div>
+            </div>
+
+            <!-- 스킬 그리드 -->
+            <div class="skill-grid" id="skillGrid">
+                <!-- 공격 스킬 -->
+                <div class="skill-card unlocked" data-category="attack">
+                    <div class="skill-card-icon">🔥</div>
+                    <div class="skill-card-name">Fireball</div>
+                    <div class="skill-card-level">Lv.3</div>
+                    <div class="skill-card-pronunciation">🔊 "파이어볼"</div>
+                    <div class="skill-card-desc">화염 구체를 발사하여 적을 공격합니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">공격력: <span class="stat-damage">120</span></div>
+                        <div class="stat">마나: <span class="stat-mana">25</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-card unlocked" data-category="attack">
+                    <div class="skill-card-icon">❄️</div>
+                    <div class="skill-card-name">Ice Bolt</div>
+                    <div class="skill-card-level">Lv.2</div>
+                    <div class="skill-card-pronunciation">🔊 "아이스 볼트"</div>
+                    <div class="skill-card-desc">얼음 화살을 발사하여 적을 마비시킵니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">공격력: <span class="stat-damage">100</span></div>
+                        <div class="stat">마나: <span class="stat-mana">20</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-card unlocked" data-category="attack">
+                    <div class="skill-card-icon">⚡</div>
+                    <div class="skill-card-name">Lightning Bolt</div>
+                    <div class="skill-card-level">Lv.2</div>
+                    <div class="skill-card-pronunciation">🔊 "라이트닝 볼트"</div>
+                    <div class="skill-card-desc">번개를 발사하여 적을 감전시킵니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">공격력: <span class="stat-damage">140</span></div>
+                        <div class="stat">마나: <span class="stat-mana">30</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-card locked" data-category="attack">
+                    <div class="skill-card-icon">🔒</div>
+                    <div class="skill-card-name">Meteor</div>
+                    <div class="skill-card-level">잠김</div>
+                    <div class="skill-card-pronunciation">🔊 "메테오"</div>
+                    <div class="skill-card-desc">레벨 15 달성 시 해제됩니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">공격력: <span class="stat-damage">300</span></div>
+                        <div class="stat">마나: <span class="stat-mana">60</span></div>
+                    </div>
+                </div>
+
+                <!-- 방어 스킬 -->
+                <div class="skill-card unlocked" data-category="defense">
+                    <div class="skill-card-icon">🛡️</div>
+                    <div class="skill-card-name">Magic Shield</div>
+                    <div class="skill-card-level">Lv.4</div>
+                    <div class="skill-card-pronunciation">🔊 "매직 쉴드"</div>
+                    <div class="skill-card-desc">마법 방어막을 생성하여 피해를 감소시킵니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">방어력: <span class="stat-defense">80</span></div>
+                        <div class="stat">마나: <span class="stat-mana">35</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-card unlocked" data-category="defense">
+                    <div class="skill-card-icon">💨</div>
+                    <div class="skill-card-name">Wind Barrier</div>
+                    <div class="skill-card-level">Lv.2</div>
+                    <div class="skill-card-pronunciation">🔊 "윈드 배리어"</div>
+                    <div class="skill-card-desc">바람 방벽을 만들어 투사체를 막습니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">방어력: <span class="stat-defense">60</span></div>
+                        <div class="stat">마나: <span class="stat-mana">25</span></div>
+                    </div>
+                </div>
+
+                <!-- 치유 스킬 -->
+                <div class="skill-card unlocked" data-category="healing">
+                    <div class="skill-card-icon">💚</div>
+                    <div class="skill-card-name">Heal</div>
+                    <div class="skill-card-level">Lv.5</div>
+                    <div class="skill-card-pronunciation">🔊 "힐"</div>
+                    <div class="skill-card-desc">체력을 회복합니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">회복량: <span class="stat-healing">150</span></div>
+                        <div class="stat">마나: <span class="stat-mana">40</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-card unlocked" data-category="healing">
+                    <div class="skill-card-icon">🌟</div>
+                    <div class="skill-card-name">Regeneration</div>
+                    <div class="skill-card-level">Lv.3</div>
+                    <div class="skill-card-pronunciation">🔊 "리제너레이션"</div>
+                    <div class="skill-card-desc">지속적으로 체력을 회복합니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">회복량: <span class="stat-healing">30/초</span></div>
+                        <div class="stat">마나: <span class="stat-mana">50</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-card locked" data-category="healing">
+                    <div class="skill-card-icon">🔒</div>
+                    <div class="skill-card-name">Resurrection</div>
+                    <div class="skill-card-level">잠김</div>
+                    <div class="skill-card-pronunciation">🔊 "레저렉션"</div>
+                    <div class="skill-card-desc">레벨 20 달성 시 해제됩니다</div>
+                    <div class="skill-card-stats">
+                        <div class="stat">회복량: <span class="stat-healing">Full</span></div>
+                        <div class="stat">마나: <span class="stat-mana">100</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentCategory = 'all';
+        let selectedCardIndex = 0;
+
+        // 키보드 이벤트 처리
+        document.addEventListener('keydown', function (event) {
+            const key = event.key.toLowerCase();
+
+            switch (key) {
+                case 'w':
+                    navigateCards('up');
+                    break;
+                case 'a':
+                    navigateCards('left');
+                    break;
+                case 's':
+                    navigateCards('down');
+                    break;
+                case 'd':
+                    navigateCards('right');
+                    break;
+                case 'q':
+                    switchCategory(-1);
+                    break;
+                case 'e':
+                    switchCategory(1);
+                    break;
+                case 'escape':
+                    goBack();
+                    break;
+            }
+        });
+
+        // 페이지 로드 시 초기화
+        window.addEventListener('load', function () {
+            showCategory('all');
+            highlightSelectedCard();
+        });
+
+        function switchCategory(direction) {
+            const categories = ['all', 'attack', 'defense', 'healing'];
+            const currentIndex = categories.indexOf(currentCategory);
+            let newIndex = currentIndex + direction;
+
+            if (newIndex < 0) newIndex = categories.length - 1;
+            if (newIndex >= categories.length) newIndex = 0;
+
+            currentCategory = categories[newIndex];
+            showCategory(currentCategory);
+            selectedCardIndex = 0;
+            highlightSelectedCard();
+        }
+
+        function showCategory(category) {
+            // 카테고리 버튼 업데이트
+            document.querySelectorAll('.skill-category').forEach(cat => {
+                cat.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+
+            // 스킬 카드 필터링
+            const skillCards = document.querySelectorAll('.skill-card');
+            skillCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            currentCategory = category;
+        }
+
+        function navigateCards(direction) {
+            const visibleCards = Array.from(document.querySelectorAll('.skill-card'))
+                .filter(card => card.style.display !== 'none');
+
+            if (visibleCards.length === 0) return;
+
+            const cols = 4; // 한 줄에 4개씩
+
+            switch (direction) {
+                case 'up':
+                    selectedCardIndex = Math.max(0, selectedCardIndex - cols);
+                    break;
+                case 'down':
+                    selectedCardIndex = Math.min(visibleCards.length - 1, selectedCardIndex + cols);
+                    break;
+                case 'left':
+                    selectedCardIndex = Math.max(0, selectedCardIndex - 1);
+                    break;
+                case 'right':
+                    selectedCardIndex = Math.min(visibleCards.length - 1, selectedCardIndex + 1);
+                    break;
+            }
+
+            highlightSelectedCard();
+        }
+
+        function highlightSelectedCard() {
+            const visibleCards = Array.from(document.querySelectorAll('.skill-card'))
+                .filter(card => card.style.display !== 'none');
+
+            // 모든 카드에서 selected 클래스 제거
+            document.querySelectorAll('.skill-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // 선택된 카드에 selected 클래스 추가
+            if (visibleCards[selectedCardIndex]) {
+                visibleCards[selectedCardIndex].classList.add('selected');
+                visibleCards[selectedCardIndex].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        function goBack() {
+            // 팝업에서 호출된 경우 부모 윈도우에게 닫기 메시지 전송
+            if (window.parent !== window) {
+                window.parent.postMessage('closePopup', '*');
+            } else {
+                window.location.href = '../기본게임화면/index.html';
+            }
+        }
+    </script>
+</body>
+
+</html>
